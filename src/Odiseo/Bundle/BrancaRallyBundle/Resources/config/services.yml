@@ -1,0 +1,4 @@
+services:
+#    odiseo_branca_rally.example:
+#        class: Odiseo\Bundle\BrancaRallyBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

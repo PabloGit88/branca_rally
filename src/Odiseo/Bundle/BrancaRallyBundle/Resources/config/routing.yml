@@ -1,0 +1,3 @@
+odiseo_branca_rally_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: OdiseoBrancaRallyBundle:Default:index }
