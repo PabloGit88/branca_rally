@@ -1,0 +1,11 @@
+odiseo_branca_rally_frontend:
+    resource: "@OdiseoBrancaRallyBundle/Resources/config/routing/frontend/main.yml"
+    prefix:   /
+
+odiseo_branca_rally_backend:
+    resource: "@OdiseoBrancaRallyBundle/Resources/config/routing/backend/main.yml"
+    prefix:   /admin
+
+_imagine:
+    resource: .
+    type:     imagine

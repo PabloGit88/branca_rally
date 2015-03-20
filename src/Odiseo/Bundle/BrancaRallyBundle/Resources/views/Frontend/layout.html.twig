@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
+		<meta name="keywords" content="pickmystuff">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        
+        <title>{% block title %}Pick My Stuff {% endblock %}</title>
+        
+	    <!-- stylesheets -->
+	    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+	    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+	    <link rel="shortcut icon" href="{{ asset('bundles/odiseopickmystuff/images/logo.png') }}" type="image/x-icon">
+		{# stylesheets... #}
+		{% block stylesheets %}
+		{% stylesheets output='css/frontend.min.css' filter='cssrewrite'
+			'bundles/odiseopickmystuff/css/bootstrap.min.css'
+			'bundles/odiseopickmystuff/css/main.css'
+		%}
+		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+		{% endstylesheets %}
+		{% endblock %}
+    </head>
+    <body>
+    	<div class="container wrapper">
+    		{% block header %}
+    		<header>
+	    		<nav class="navbar navbar-default" role="navigation">
+					<div class="navbar-header">
+	    				<button type="button" class="navbar-toggle" 
+	    					data-toggle="collapse"
+	    					data-target=".navbar-ex1-collapse">
+	      					<span class="icon-bar"></span>
+	      					<span class="icon-bar"></span>
+	      					<span class="icon-bar"></span>
+	    				</button>
+    				</div>   					
+ 
+  					<div class="collapse navbar-collapse navbar-ex1-collapse">
+		    			<!-- Brand and toggle get grouped for better mobile display -->
+							<ul class="nav navbar-nav navbar-left">
+	      					  <li><a class="facebook" href="https://www.facebook.com/pickmystuffpr" target="_blank"><img class="img-responsive" src="{{ asset('bundles/odiseopickmystuff/images/facebook-icon.png') }}"></a></li>
+	      					  <li><a class="twitter" href="#"><img class="img-responsive" src="{{ asset('bundles/odiseopickmystuff/images/twitter-icon.png') }}"></a></li>
+							</ul>
+							<ul class="nav navbar-nav navbar-right">
+							{% set currentPath = app.request.attributes.get('_route') %}
+	      					  <li class="home{%  if currentPath == 'odiseo_pick_my_stuff_frontend_home' %} active{% else %}''{% endif %}"><a href="{{ path('odiseo_pick_my_stuff_frontend_home') }}">Inicio</a></li>
+	      					  <li><span>::</span></li>
+	      					  <li class="about{% if(currentPath == 'odiseo_pick_my_stuff_frontend_aboutus') %} active{% else %}''{% endif %}"><a href="{{ path('odiseo_pick_my_stuff_frontend_aboutus') }}">Quiénes Somos</a></li>
+	      					  <li><span>::</span></li>
+	      					  <li class="services{% if(currentPath == 'odiseo_pick_my_stuff_frontend_services') %} active{% else %}''{% endif %}"><a href="{{ path('odiseo_pick_my_stuff_frontend_services') }}">Servicios</a></li>
+	      					  <li><span>::</span></li>
+	      					  <li class="contactus{% if(currentPath == 'odiseo_pick_my_stuff_frontend_contact') %} active{% else %}''{% endif %}"><a href="{{ path('odiseo_pick_my_stuff_frontend_contact') }}">Contáctanos</a></li>
+	      					  <li><span>::</span></li>
+	      					  <li class="faq{% if(currentPath == 'odiseo_pick_my_stuff_frontend_faq') %} active{% else %}''{% endif %}"><a href="{{ path('odiseo_pick_my_stuff_frontend_faq') }}">FAQS</a></li>
+							</ul>      					  
+		    		</div>
+		    	</nav> 
+    		</header>
+    		{% endblock %}
+    		<div id="content" class="{% block contentClass %}{% endblock %}">
+				{% block content %}
+				{% endblock %}
+			</div>
+		</div>
+		<footer>
+			<div class="row">
+				<div class="col-xs-6 imageTel">
+					<div class="tel">
+						<img class="img-responsive" src="{{ asset('bundles/odiseopickmystuff/images/tel_footer.png') }}">
+						<span><a>787.651.6044</a> | <a>787.651.6054</a></span>
+					</div>
+				</div>
+				<div class="col-xs-6 imageEmail">
+					<div class="email">
+						<img class="img-responsive" src="{{ asset('bundles/odiseopickmystuff/images/email_footer.png') }}">
+						<a href="mailto:info@pickmystuff.net">info@pickmystuff.net</a>
+					</div>
+				</div>
+			</div>
+		</footer>
+		<!-- javascript -->
+		{# javascripts... #}
+		{% block javascripts %}
+		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		{% javascripts output='js/frontend.min.js'
+           'bundles/odiseopickmystuff/js/vendor/jquery.validate.min.js'
+		   'bundles/odiseopickmystuff/js/vendor/bootstrap-filestyle.min.js'
+		   'bundles/odiseopickmystuff/js/vendor/bootstrap.min.js'
+		   'bundles/odiseopickmystuff/js/main.js'	
+		%}
+		<script type="text/javascript" src="{{ asset_url }}"></script>
+		{% endjavascripts %}
+		{% endblock %}
+    </body>
+</html>
