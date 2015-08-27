@@ -3,7 +3,7 @@ parameters:
     database_driver:   pdo_mysql
     database_host:     127.0.0.1
     database_port:     ~
-    database_name:     symfony
+    database_name:     brancarally
     database_user:     root
     database_password: ~
     # You should uncomment this if you want use pdo_sqlite
@@ -17,4 +17,20 @@ parameters:
     locale:            en
 
     # A secret key that's used to generate certain security-related tokens
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:  ThisTokenIsNotSoSecretChangeIt
+    token_email: SDFL2li342#@$f;;aso8f;ahf;akdhj3sfl_
+    email_from: admin@brancarally.com
+    email_subject: Participá del Rally con Branca
+    email_name: Branca Rally
+    
+    ffmpeg_binary: /usr/bin/ffmpeg
+    ffprobe_binary: /usr/bin/ffprobe
+    
+    facebook_app_id: ''
+    facebook_app_secret: ''
+    facebook_app_host: ''
+    facebook_tab_url: ''
+    facebook_login_scope: 
+        - 'public_profile'
+        - 'email'
+        - 'user_friends'

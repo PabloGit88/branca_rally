@@ -1,0 +1,15 @@
+odiseo_test_email:
+    path:     /email
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Test/EmailTest:sendEmail" }
+    
+odiseo_test_facebook:
+    path:     /facebook
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Test/FacebookTest:login" }
+    
+odiseo_test_token:
+    path:     /token/{token}
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Test/TokenTest:test" }
+
+odiseo_test_email_ganadores:
+    path:     /email_ganadores/carrera/{id}
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Test/EmailTest:sendEmailWinner" }

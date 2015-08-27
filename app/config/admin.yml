@@ -1,0 +1,58 @@
+easy_admin:
+    formats:
+        date:     'd/m/Y'
+        time:     'H:i'
+        datetime: 'd/m/Y H:i:s'
+    site_name: 'Branca Rally'
+    list_actions: ['edit', 'show']
+    entities:
+        User:
+            label: 'Usuarios'
+            class: Odiseo\Bundle\BrancaRallyBundle\Entity\User
+            list:
+                title: "Usuarios"
+                fields: ['id', { property: 'fullname', label: 'Nombre y Apellido' }, { property: 'phone', label: 'Telefono' },'dni','email', { property: 'facebookUserId', fieldType: 'facebook_link', label: 'Facebook' }]
+                action_edit: "aa"
+            new:
+                action_label: "Nuevo usuario"
+                fields: [ { property: 'fullname', label: 'Nombre y Apellido' }, 'dni', { property: 'email', type: 'email' }]
+                title:  "Nuevo usuario"
+            edit:
+                fields: [ { property: 'fullname', label: 'Nombre y Apellido' }, { property: 'phone', label: 'Telefono' },'dni',{ property: 'email', type: 'email' }]
+                title:  'Editar usuario'
+            show:
+                title: "Mostrando usuario "
+                fields: ['id', { property: 'fullname', label: 'Nombre y Apellido' }, { property: 'phone', label: 'Telefono' }, 'dni','email']
+        UserRaceParticipation:
+            label: 'Participaciones'
+            class: Odiseo\Bundle\BrancaRallyBundle\Entity\UserRaceParticipation
+            search:
+              fields: [team]
+            list:
+                title: "Participaciones"
+                fields: ['id', { property: 'user', label: 'Usuario' }, { property: 'race', label: 'Carerra' },{ property: 'teamName', label: 'Equipo' }, { property: 'soundfileBasename', fieldType: 'audio', label: 'Audio' },{ property: 'isFacebookShared', label: 'Compartido', type: 'boolean' }]
+            new:
+                action_label: "Nueva participacion"
+                fields: [{ property: 'user', label: 'Usuario' },{ property: 'race', label: 'Carerra' },{ property: 'team', label: 'Equipo' }, { property: 'soundfile', label: 'Audio' },{ property: 'isFacebookShared', label: 'Compartido' }]
+                title:  'Nueva participacion'
+            edit:
+                fields: [{ property: 'user', label: 'Usuario' }, { property: 'race', label: 'Carerra' },{ property: 'team', label: 'Equipo' }, { property: 'soundfile', label: 'Audio' },{ property: 'isFacebookShared', label: 'Compartido' }]
+                title:  'Editar participacion'
+            show:
+                title: "Mostrando participacion "
+                fields: ['id', { property: 'user', label: 'Usuario' }, { property: 'race', label: 'Carerra' } , { property: 'team', label: 'Equipo' },  { property: 'soundfile', label: 'Audio' },{ property: 'isFacebookShared', label: 'Compartido' }]
+        Race:
+            label: 'Carreras'
+            class: Odiseo\Bundle\BrancaRallyBundle\Entity\Race
+            list:
+                title: "Carreras"
+                fields: ['id', { property: 'name', label: 'Nombre' }, { property: 'isActive', label: 'Activada?' }, { property: 'isEnded', label: 'Finalizada?', type: 'boolean' }, { property: 'canShowWinners', label: 'Muestra ganadores?', type: 'boolean' },{ property: 'startDate', label: 'Fecha de comienzo' },{ property: 'endDate', label: 'Fecha de finalizacion' }, { property: 'participations', label: 'Participaciones' }]
+            new:
+                action_label: "Nueva carrera"
+                fields: [{ property: 'name', label: 'Nombre' }, { property: 'isActive', label: 'Activado' },{ property: 'startDate', label: 'Fecha de comienzo' },{ property: 'endDate', label: 'Fecha de finalizacion' }]
+            edit:
+                fields: [{ property: 'name', label: 'Nombre' }, { property: 'isActive', label: 'Activado' },{ property: 'startDate', label: 'Fecha de comienzo' },{ property: 'endDate', label: 'Fecha de finalizacion' }]
+                title:  'Editar %%entity_name%%'
+            show:
+                title: "Mostrando %%entity_id%%' "
+                fields: ['id', { property: 'name', label: 'Nombre' }, { property: 'isActive', label: 'Activado' },{ property: 'startDate', label: 'Fecha de comienzo' },{ property: 'endDate', label: 'Fecha de finalizacion' }, { property: 'participations', label: 'Participaciones' }]

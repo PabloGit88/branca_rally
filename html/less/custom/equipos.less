@@ -1,0 +1,123 @@
+.equipo{
+	&-content{
+		@media @xs-sm, @sm-md {
+			padding: 10px 0px 0px 0px;
+		}
+		padding: 50px 0px 0px 0px;
+		&.escudo{
+			padding-top: 270px;		
+		}
+	}
+	&-escudo{
+		&-unico{
+			background-image: url('../img/escudo-unico.png');
+			width: 241px;
+			height: 139px;
+			margin-left: -241px /2;
+			margin-top: -139px /2;
+
+		}
+		&-branca{
+			background-image: url('../img/escudo-branca.png');
+			width: 241px;
+			height: 180px;
+			margin-left: -241px /2;
+			margin-top: -180px /2;
+
+		}
+		&-branca,&-unico{		
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			background-position: center;
+			background-repeat: no-repeat;
+		}
+	}
+	&-text{
+		&-branca{
+			color: #d32a2a;
+		}
+		&-unico{
+			color: #14416a;
+		}
+		&-branca,&-unico{
+			font-weight: 700;
+			font-size: 42px;
+			text-align: center;	
+			@media @xs-sm {
+				font-size: 26px;
+			}
+			@media @sm-md {
+				font-size: 36px;
+			}
+		}
+	}
+
+	&-auto{
+		&-unico{
+			background-image: url("../img/auto-home-unico.png");
+		}
+		&-branca{
+			background-image: url("../img/auto-home-branca.png");
+		}
+		&-branca,&-unico{
+			display: inline-block;
+			width: 133px;
+			height: 175px;
+			position: absolute;
+			background-repeat: no-repeat;
+			background-position: 0px 0px;
+			top: 70px;
+			left: 235px;
+		}
+	}
+	&-cierre{
+		.b-full('../img/cierre.jpg');
+		&-content{
+			padding: 60px 0px 0px;
+			@media @xs-sm {
+				position: relative;
+				padding: 30px 0px 25px;
+				line-height: 0;				
+			}
+			@media @sm-md {
+				position: relative;
+				padding: 40px 0px 25px;
+				line-height: 0;				
+			}
+		}
+		@media @sm-md {
+			position: relative;
+		}
+	}
+}
+
+.color{
+	&-branca{
+		color: #d32a2a;
+	}
+	&-unico{
+		color: #14416a;
+	}
+	&-branca,&-unico{
+		font-size: 16px;
+		font-weight: 700;
+	}
+}
+@media @xs-sm{
+	.bg-mobile-unico{					
+		background-color: #35aea6;
+		.b-full('../img/bg-equipo-unico.svg');
+		background-size: cover;
+	}
+	.bg-mobile-branca{
+		background-color: #feb058;
+		.b-full('../img/bg-equipo-branca.svg');
+		background-size: cover;
+	}
+
+	.vs-content-mobile{
+		z-index: 1;
+		position: relative;
+	}
+}

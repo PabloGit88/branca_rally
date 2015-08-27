@@ -1,0 +1,97 @@
+.menu{
+	margin-bottom: 40px;
+	&-mobile{
+		position: fixed;
+		z-index: 3;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		background-color: rgba(0, 0, 0, 0.3);
+		@media @xs-sm {
+			height: 54px;
+		}
+		@media @sm-md{
+			height: 130px;
+		}
+	}
+}
+
+.menu-list{
+	margin: 0;
+	padding: 0;
+	margin-top: 45px;
+	li{
+		list-style:none;
+		margin: 0;
+		padding: 0;
+		display: inline-block;
+	}
+	&-mobile{
+		.transition(all .4s ease-out);
+		&.open{
+			left:0;	
+			@media @sm-md {
+				.opacity(1);
+			}
+		}
+		position: fixed;
+		z-index: 2;
+		left: -100%;
+		top: 0;
+		padding-top: 54px;
+		padding-left: 0;
+		display: inline-block;
+		@media @sm-md {
+			padding-top: 130px;
+			left: 0;
+			.opacity(0);
+		}
+
+		width: 100%;
+		margin: 0;
+		background-color: #595959;
+		li{
+			list-style: none;
+			padding: 0;
+			margin: 0;
+			border-top: 1px solid #333;
+			&:last-child{
+				border-bottom: 1px solid #333;
+			}
+			a{
+				display: inline-block;
+				font-size: 14px;
+				padding: 15px 0px;
+				text-align: center;
+				width: 100%;
+				color:#fff;
+				text-transform: uppercase;
+			}
+		}
+	}
+}
+
+.btn-menu{
+	display: inline-block;
+	font-weight: 700;
+	color: #fff;
+	.transition(all .2s linear);
+	text-transform: uppercase;
+	font-size: 12px;
+	letter-spacing: 0px;
+	padding: 20px 25px 20px 25px;
+	&.last{
+		padding-right: 0px;
+	}
+	&:hover{
+		color:#feb058;
+	}
+}
+
+.scroll-down{
+	display: block;
+	height: 17px;
+	.b-center('../img/scroll-down.png');
+	background-position: center 0px;
+}

@@ -1,0 +1,26 @@
+@unico-color: #6fb8ad;
+@unico-color-dark: #579087;
+@branca-color: #6fb8ad;
+@branca-color-dark: #579087;
+.reproductor{
+	&-branca,&-unico{
+		height: 500px;
+		display: inline-block;
+		width: 100%;
+		.audio2_html5.blackControllers .thumbsHolder_ThumbOFF{
+			background-color: #fff;
+			border-bottom:2px solid #ff0000;
+		}
+	}
+	&-branca{
+		.audio2_html5.blackControllers .thumbsHolder_ThumbOFF{
+			border-bottom-color: #e4e4cc;
+		}
+	}
+	&-unico{
+		.audio2_html5.blackControllers .thumbsHolder_ThumbOFF{
+			border-bottom-color: #e2e0e1;
+		}
+	}
+
+}

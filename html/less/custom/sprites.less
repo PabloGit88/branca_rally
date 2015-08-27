@@ -1,0 +1,180 @@
+.sprites{
+	background-image: url('../img/iconos-sprites.png');
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	display: inline-block;
+	&.whatsapp{
+		background-position: -329px -3px;
+		width: 57px;
+		height: 60px;	
+		margin: 0px 15px -15px 0px;
+		@media @xs-sm ,@sm-md{
+			background-image: url('../img/whatsapp.svg');
+			background-position: 0 0;
+			background-size: 100%;
+		}
+		&-sm{
+			width: 38px;
+			height: 38px;	
+			margin: 0px 5px -5px 0px;
+			background-image: url('../img/whatsapp.svg');
+			background-position: 0 0;
+			margin: 0;
+			background-size: 100%;
+			@media @xs-sm{
+				width: 22px;
+				height: 22px;
+			}	
+		}
+		&-xs{
+			background-position: -328px -68px;
+			width: 22px;
+			height: 22px;	
+			margin: 0px 5px -5px 0px;
+			@media @xs-sm ,@sm-md{
+				background-image: url('../img/whatsapp.svg');
+				background-position: 0 0;
+				margin: 0;
+				background-size: 100%;
+			}
+		}
+		&-xxs{
+			background-position: -357px -67px;
+			width: 18px;
+			height: 18px;	
+			margin: 0px 3px -5px 0px;
+			@media @xs-sm ,@sm-md{
+				background-image: url('../img/whatsapp.svg');
+				background-position: 0 0;
+				margin: 0;
+				background-size: 100%;
+			}
+		}
+	}
+	&.vs{
+		display: block;
+		background-position: -195px 0;
+		width: 125px;
+		height: 125px;
+		margin-top: 5px;
+		@media @xs-sm ,@sm-md{
+			background-image: url('../img/vs.svg');
+			background-position: 0 0;
+			margin: 0;
+			background-size: 100%;
+			&.xs{
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-top: -42px /2;
+				margin-left: -42px /2;
+				display: block;
+				width: 42px;
+				height: 42px;
+			}
+			&.sm{
+				width: 76px;
+				height: 76px;
+				position: absolute;
+				left: 50%;
+				margin-left: -76px /2;
+				margin-top: 10px;
+			}
+		}
+
+	}
+	&.bandera{
+		background-position: 0 0;
+		margin: 0px 15px -5px -15px;
+		width: 80px;
+		height: 80px;
+	}
+	&.banderas{
+		background-position: -76px -79px;
+		margin: 0px 0px 0px 15px;
+		vertical-align: middle;
+		width: 66px;
+		height: 40px;
+	}
+	&.reloj{
+		background-position: -90px 0;
+		margin: 0px 15px -5px 0px;
+		width: 90px;
+		height: 80px;
+	}
+	&.trofeo{
+		background-position: -10px -85px;
+		margin: -30px 0px 0px 0px;
+		vertical-align: middle;
+		width: 66px;
+		height: 70px;
+		@media @xs-sm,@sm-md {
+			display: block;
+			margin: 20px auto;
+		}
+	}
+	&.reload{
+		background-position: -148px -90px;
+		margin: 0px 0px 0px 0px;
+		vertical-align: middle;
+		width: 23px;
+		height: 23px;
+	}
+	&.semaforo{
+		&-verde{
+			background-position: -81px -133px;
+			margin: 0px 0px -2px 15px;
+			display: inline-block;
+			width: 70px;
+			height: 22px;
+		}
+	}
+	&.play{
+		&-audio{
+			background-position: -173px -128px;
+			margin: 0px 0px -2px 15px;
+			display: inline-block;
+			width: 20px;
+			height: 30px;
+			margin-left: -10px;
+		}
+	}
+	&.pause{
+		&-audio{
+			background-position: -205px -128px;
+			margin: 0px 0px -2px 12px;
+			display: inline-block;
+			width: 30px;
+			height: 30px;
+			margin-left: -15px;
+		}
+	}
+	&.pause-audio,&.play-audio{
+		position: absolute;
+		left: 50%;
+		top: 46%;
+		margin-top: -15px;
+	}
+}
+
+
+.mic{
+	&-content{
+		position: absolute;
+		width: 200px;
+		height: 200px;
+		left: 50%;
+		top: 50%;
+		margin-left: -100px;
+		margin-top: -100px;
+		@media @xs-sm,@sm-md {
+			top: 40%;
+		}
+		.play{
+			display: inline-block;
+			width: 100%;
+			height: 100%;
+		}
+
+	}
+}

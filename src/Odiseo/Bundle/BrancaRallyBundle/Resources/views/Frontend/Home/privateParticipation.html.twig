@@ -1,0 +1,200 @@
+{% extends 'OdiseoBrancaRallyBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+<div id="sharedOk" data-id="{{ userParticipation.id }}" data-url-shared-ok="{{ isShareUrl }}"></div>
+<header>
+    <div class="bg-equipos-landing-{{ team }}-top landing">
+        <div class="container">
+            <div class="row menu ">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <div class="logo-landing-{{ team }} header-mobile">
+                        <span class="sr-only">Equipo {{ team=='unico'?'Único':'Branca' }}</span>
+                        <p class="color-{{ team }} hidden-xs"><span class="sprites whatsapp-xxs"><span class="sr-only">icon</span></span>{{ team=='unico'?'+54 9 11 2321 8162':'+54 9 11 2321 7974' }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                    <a class="logo-landing-{{ team }}-rally pull-right hidden-xs" href="{{ path('odiseo_branca_rally_frontend_home') }}"><span class="sr-only">Branca Rally 2015</span></a>
+                    <a class="logo-landing-{{ team }}-rally pull-right mobile visible-xs" href="{{ path('odiseo_branca_rally_frontend_home') }}"><span class="sr-only">Branca Rally 2015</span></a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1 class="text-center text-uppercase text-mobile-title">Ya estás participando <br/>
+                        en el equipo {{ team=='unico'?'Único':'Branca' }}.</h1>
+                </div>
+
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 col-xs-offset-0">
+                    <p class="text-center">¡Ahora sumá a tus amigos!</p>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-xs-offset-0">
+                    <a class="scroll-down" href="#"><span class="sr-only">scroll-down</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- HEADER-->
+
+<!-- CONTENT-->
+<section>
+    <div id="carrera" class="carrera offset-top-200 offset-sm-md-top-200 hidden-xs hidden-sm">
+        <span class="carrera-overlay"><span class="sr-only">overlay</span></span>
+
+        <div class="carrera-view visible-md visible-lg pista-bg-pasto"  id="carreraCotaninerIndividual">
+            <div class="carrera-content">
+                <div class="sr-only">
+                    <svg class="absolute" width="1024" height="462" version="1.1" id="ganador_recorrido" xmlns="http://www.w3.org/2000/svg" >
+                        <g>
+                            <path fill="none" stroke="none" stroke-miterlimit="10" d="M387,109.5c7.333-8.444,11.168-9.884,26.835-6.384 c23.414,5.231,48.695,80.215,73.565,66.772c24.871-13.443,59.151-30.248,107.547-8.738 c48.396,21.509,164.008,48.396,186.188,50.413c22.183,2.016,92.088-0.672,103.516,14.114c11.426,14.787,7.394,42.347-43.691,45.708 c-51.084,3.359-69.905,6.05-113.596-14.117c-43.69-20.164-195.6-73.266-237.947-38.313c-42.346,34.952-31.591,55.791-50.411,77.3 c-18.821,21.509-54.446,41.001-78.644,13.442c-24.198-27.559-76.628-82.005-135.779-79.989 c-59.149,2.017-69.232-41.674-28.902-47.051c40.33-5.376,79.64,0.484,102.731,11.422c31.944,15.131,70.836,8.091,92.134-6.725 c23.202-16.141,60.53-96.175,63.889-106.258c3.362-10.083,23.55-39.335,47.076-24.546c23.526,14.787,50.438,53.801,127.716,64.268 c54.201,7.341,130.655,3.019,147.617-2.2c30.745-9.46,53.188,24.458,59.916,34.102c10.087,14.459,28.777,9.164,52.455,21.184 c20.133,10.221,37.886,23.156,50.775,24.883c32.616,4.371,59.518,13.47,58.173,53.128c-1.344,39.657-4.143,81.438-40.015,77.34 c-16.046-1.834-34.257-27.983-48.422-30.601c-13.01-2.402-26.932,10.823-54.137,12.105c-55.365,2.612-69.749,30.526-96.635,28.511 c-26.887-2.018-38.894-24.82-67.796-43.642c-28.903-18.821-77.003-42.369-126.769-42.705c-36.692-0.248-54.81,12.778-71.613,38.622 c-14.495,22.293-31.617,101.262-85.364,102.17c-42.319,0.716-79.747-19.739-110.683-65.471 c-14.316-21.161-43.54-59.472-98.187-41.023c-61.7,20.829-80.16,25.832-109.063,0.291c-28.902-25.542,0.825-80.316,23.679-107.202 c22.853-26.887,34.609-61.89,106.721-67.562c15.471-1.217,40.329,18.821,73.266,30.248c32.936,11.427,79.092-19.346,85.868-26.2 L387,109.5z"></path>
+                        </g>
+                    </svg>
+
+                </div>
+
+                <div class="col-lg-10 col-md-12 col-lg-offset-1 col-md-offset-0">
+                    <!-- Trackers -->
+                    <canvas class="absolute" id="ganador" width="1024" height="462" data-laps="1"></canvas>
+                    <!-- Trackers -->
+                    <!-- AUTOS -->
+                    <div data-limit-ganador='{max :200, min: 34}'  class="pista-puente-container md" id="bridge">
+                        <img src="{{asset('bundles/odiseobrancarally/img/carrera/puente-1024.png') }}" alt="puente"/>
+                    </div>
+                <div class="auto-tracker-md" id="contenedor_ganador" data-name="{{ team }}">
+                    <div id="auto_ganador" class="auto-container">
+                    <div class="auto auto-{{ team }}"></div>
+                    </div>
+                </div>
+                    <div class="sr-only">
+                	{% set soundBasename = userParticipation.soundFileBasename %}
+                    <audio id="ganador_audio" controls preload="auto">
+                        <source src="{{ asset('uploads/'~soundBasename~'.aac') }}" controls type="audio/aac">
+                        <source src="{{ asset('uploads/'~soundBasename~'.mp3') }}" controls type="audio/mp3">
+                        <source src="{{ asset('uploads/'~soundBasename~'.ogg') }}" controls type="audio/ogg">
+                        Your browser does not support the audio tag.
+                    </audio>
+                    </div>
+
+                <!-- AUTOS -->
+                    <div class="pista md pista-1024"><span class="sr-only">pista</span></div>
+                </div>
+
+                <div id="timerContent" data-counter="4" class="timer-content">
+                    <span id="timerRace" class="timer-count"><span class="sr-only">TIMER</span></span>
+                    <audio controls class="sr-only" id="timerAudio" preload="auto">
+                        <source src="{{ asset('bundles/odiseobrancarally/media/largada.mp3') }}" type="audio/mpeg">
+                        <source src="{{ asset('bundles/odiseobrancarally/media/largada.ogg') }}" type="audio/ogg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="carrera-control hidden-xs hidden-sm">
+        <a class="btn-principal landing-play center-block" href="" id="verCarrera"> Comenzar <span class="sprites banderas"><span class="sr-only">icono</span></span></a>
+    </div>
+
+    <input type="hidden" id="srcIEfix" value="{{ asset('bundles/odiseobrancarally/img/carrera/carrera-'~team~'-ie.png') }}" data-text="hacé click para escuchar el sonido de tu motor"/>
+
+</section>
+
+<section>
+    <div class="bg-equipos-landing-{{ team }}-bottom diag hidden-xs hidden-sm offset-top-160 offset-sm-top-120"><span class="sr-only">diagonal fixed</span></div>
+
+    <div class="bg-equipos-landing-{{ team }}-bottom ">
+        <div class="container">
+            <div class="row visible-xs visible-sm" id="reproductorCopy">
+                <div class="col-lg-12 col-sm-12">
+                    <div class="equipo-content">
+                        <div class="mic-content">
+                            <a class="play" href="#" id="mobileAudioSingle"><span class="sprites play-audio"><span class="sr-only">play</span></span></a>
+                        </div>
+                        <img src="{{ asset('bundles/odiseobrancarally/img/microfono.png') }}" alt="Mic" class="center-block img-responsive"/>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-sm-12" id="fixedIEtexto">
+                    <h4 class="text-center text-uppercase">hacé click para escuchar
+                        el sonido de tu motor</h4>
+                </div>
+            </div>
+        	<!-- SHARE -->
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="equipo-content">
+                        <h1 class="text-mobile-title text-center-xs-sm text-center-sm-md">Compartir <span class="sprites bandera hidden-xs"><span class="sr-only">icon</span></span></h1>
+                        <p class="subtitle text-center-xs-sm text-center-sm-md">Compartí tu audio en Facebook.</p>
+                        <p class="text-center-xs-sm text-center-sm-md">Y sumá amigos a tu equipo. Recordá que el sorteo de las entradas se realiza entre los <br class="hidden-xs"/>
+                            audios del equipo ganador.</p>
+                        <a class="btn-principal hidden-sm hidden-xs shareButton" href="{{ facebookLoginUrl }}" data-share-url="{{ participationShareUrl }}">compartí ahora</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <img src="{{ asset('bundles/odiseobrancarally/img/'~team~'/iphone.png') }}" alt="Iphone" class="offset-top-50 hidden-sm hidden-xs center-block img-responsive"/>
+                    <img src="{{ asset('bundles/odiseobrancarally/img/iphone-paso-2-mobile-'~team~'.png') }}" alt="Iphone" class="offset-top-50 visible-xs visible-sm center-block img-responsive"/>
+
+                </div>
+                <div class="col-xs-12 col-sm-12 visible-xs visible-sm">
+                    <a class="btn-principal shareButton" href="{{ facebookLoginUrl }}" data-share-url="{{ participationShareUrl }}">compartí ahora</a>
+
+                </div>
+            </div>
+            
+            <!-- PLAYER -->
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 hidden-xs">
+                    <div class="reproductor-{{ team }}">
+                        <div class="audio2_html5 center-block">
+							{{ include('OdiseoBrancaRallyBundle:Frontend:Partials/_soundsPlayer.html.twig', { 'participations': playerParticipations, 'playerId': 'reproductor', 'team': team }) }}                        
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="equipo-content">
+                        <h1 class="text-center-sm-md text-center-xs-sm text-mobile-title">BUSCÁ Y ESCUCHÁ <br class="hidden-xs"/>
+                            A TUS AMIGOS.</h1>
+                        <p class="subtitle text-center-sm-md text-center-xs-sm">Podés buscar a tus amigos y reproducir <br class="hidden-xs"/>
+                            sus audios.</p>
+                    </div>
+                </div>
+                <div class="visible-xs col-xs-12 ">
+                    <div class="reproductor-{{ team }}">
+                        <div class="audio2_html5 center-block">
+                            {{ include('OdiseoBrancaRallyBundle:Frontend:Partials/_soundsPlayer.html.twig', { 'participations': playerParticipations, 'playerId': 'reproductorMobile', 'team': team }) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="enterate {{ team }}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-0 col-xs-offset-0">
+                    <p class="text-center center-block"><span class="sprites trofeo "><span class="sr-only">icon</span></span>Enterate si sos uno de los ganadores el día: <strong>{{ userParticipation.race.endDate|date("d/m/Y") }}</strong></p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<!-- JS CARRERA-->
+<script type="text/javascript" src="{{asset('bundles/odiseobrancarally/js/vendor/paper.js') }}"></script>
+<script type="text/javascript" src="{{asset('bundles/odiseobrancarally/js/vendor/animframe.js') }}"></script>
+<script type="text/javascript" src="{{asset('bundles/odiseobrancarally/js/app/classes/SoundControl.js') }}"></script>
+<script type="text/javascript" src="{{asset('bundles/odiseobrancarally/js/app/classes/Timer.js') }}"></script>
+<script type="text/javascript" src="{{asset('bundles/odiseobrancarally/js/app/classes/Track.js') }}"></script>
+<script type="text/javascript" src="{{asset('bundles/odiseobrancarally/js/app/classes/Car.js') }}"></script>
+<script type="text/javascript" src="{{asset('bundles/odiseobrancarally/js/app/classes/AnimatePng.js') }}"></script>
+<script type="text/javascript" src="{{asset('bundles/odiseobrancarally/js/app/app.js') }}"></script>
+<script type="text/javascript" src="{{asset('bundles/odiseobrancarally/js/app/controller/carrera-individual.js') }}"></script>
+<!-- JS CARRERA-->
+{% endblock %}

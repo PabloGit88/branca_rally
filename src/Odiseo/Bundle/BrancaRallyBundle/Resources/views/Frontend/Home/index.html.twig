@@ -1,0 +1,205 @@
+{% extends 'OdiseoBrancaRallyBundle:Frontend:layout.html.twig' %}
+
+{% block og_description %}¿Querés vivir de cerca el 'Super Especial Fernet Branca' del Rally Mundial Argentina 2015 2015? Sumate al Equipo que desees y participá por entradas para este evento único.{% endblock %}
+{% block og_image %}{{ asset('bundles/odiseobrancarally/img/ogimage-home.jpg', absolute=true) }}{% endblock %}
+
+{% block content %}
+<header>
+    <div class="menu-mobile visible-xs visible-sm">
+        <div class="col-xs-8 col-sm-8">
+            <a class="logo mobile" href="{{ path('odiseo_branca_rally_frontend_home') }}"><span class="sr-only">Branca Rally 2015</span></a>
+        </div>
+        <div class="col-xs-4 col-sm-4">
+            <a class="btn-menu-mobile pull-right" id="mobileMenuDrop" href="#"><i class="fa fa-bars"><span class="sr-only">Menu</span></i></a>
+        </div>
+    </div>
+    <ul class="menu-list-mobile visible-xs visible-sm">
+        <li><a class="btn-menu-responsive" href="{{ path('odiseo_branca_rally_frontend_home') }}">Cómo participar</a></li>
+        <li><a class="btn-menu-responsive" href="{{ path('odiseo_branca_rally_frontend_home_races_winners') }}">Carreras y ganadores</a></li>
+        <li><a class="btn-menu-responsive" href="{{ path('odiseo_branca_rally_frontend_terms') }}">Bases y condiciones</a></li>
+    </ul>
+    <div class="bg-home">
+        <div class="container">
+            <div class="row menu hidden-xs hidden-sm">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <a class="logo" href="{{ path('odiseo_branca_rally_frontend_home') }}"><span class="sr-only">Branca Rally 2015</span></a>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                    <nav>
+                        <ul class="menu-list pull-right">
+                            <li><a class="btn-menu" href="{{ path('odiseo_branca_rally_frontend_home') }}">Cómo participar</a></li>
+                            <li><a class="btn-menu" href="{{ path('odiseo_branca_rally_frontend_home_races_winners') }}">Carreras y ganadores</a></li>
+                            <li><a class="btn-menu last" href="{{ path('odiseo_branca_rally_frontend_terms') }}">Bases y condiciones</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1 class="text-center text-uppercase">Fernet Branca te regala <br/> un Kit Especial para vivir de cerca el Rally</h1>
+                    <p class="text-center subtitle">Participá por un botellón de 5 litros, una remera y un par de entradas para el Super Especial Fernet Branca del Rally Argentino 2015. </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-3 col-xs-offset-0">
+                    <a class="btn-principal home center-block" id="comoParticipar" href="#">Participá y ganá</a>
+                </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="hidden-xs hidden-sm col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-xs-offset-0">
+                    <a class="scroll-down" href="#"><span class="sr-only">scroll-down</span></a>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <img class="img-responsive pull-right-md-lg center-block" src="{{ asset('bundles/odiseobrancarally/img/marcas.png') }}" alt="Marcas"/>
+	            </div>
+	        </div>
+	     </div>
+	 </div>
+</header>
+<section>
+    <div class="bg-equipos">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1 class="text-center big">MANDÁ TU <br class="visible-sm"/> MENSAJE DE VOZ</h1>
+                    <p class="text-center subtitle">Elegí cualquiera de estos números.</p>
+                    <p class="text-center">Agregalo a What'sApp y mandá un audio simulando el motor de un auto de Rally.
+                        <br class="hidden-sm"/> No te olvides de escribir tu nombre y apellido, mail y DNI luego del audio.</p>
+                </div>
+                <div class="col-sm-12 col-xs-12 visible-xs visible-sm">
+                    <div class="equipo-content">
+                        <div class="mic-content mic-adjust">
+                            <a class="play" href="#" id="audioExampleButton1"><span class="sprites play-audio"><span class="sr-only">play</span></span></a>
+                        </div>
+                        <img src="{{ asset('bundles/odiseobrancarally/img/microfono.png') }}" alt="Mic" class="center-block img-responsive">
+                        <p class="text-center">Audio ejemplo</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="equipo-content escudo">
+                        <div class="equipo-escudo-branca center-block"><span class="sr-only">equipo branca</span></div>
+                        <p class="equipo-text-branca">
+                            <small class="text-center">Agregá este número a tus contactos</small>
+                            <span class="sprites whatsapp visible-lg-inline-block visible-md-inline-block"><span class="sr-only">icon</span></span>
+                            <span class="sprites whatsapp-sm visible-sm-inline-block visible-xs-inline-block"><span class="sr-only">icon</span></span>
+                            <span class="hidden-xs">+54 9 11 2321 7974</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 hidden-sm hidden-xs inset-lg-md-top-50">
+                    <div class="reproductor-home-example" id="audioExampleButton">
+                        <div class="play play-example"><span class="sprites play-audio example-home"><span class="sr-only">play</span></span></div>
+                        <div class="sr-only">
+                            <audio id="exampleAudio" controls preload="auto">
+                                <source src="{{ asset('bundles/odiseobrancarally/media/audio_ejemplo.mp3') }}" type="audio/mpeg">
+                                <source src="{{ asset('bundles/odiseobrancarally/media/audio_ejemplo.ogg') }}" type="audio/ogg">
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 bg-unico-mobile">
+                    <div class="equipo-content escudo">
+                        <div class="equipo-escudo-unico center-block"><span class="sr-only">equipo unico</span></div>
+                        <p class="equipo-text-unico">
+                            <small class="text-center">Agregá este número a tus contactos</small>
+                            <span class="sprites whatsapp visible-lg-inline-block  visible-md-inline-block"><span class="sr-only">icon</span></span>
+                            <span class="sprites whatsapp-sm visible-sm-inline-block visible-xs-inline-block"><span class="sr-only">icon</span></span>
+                            <span class="hidden-xs">+54 9 11 2321 8162</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="clear-grid">
+        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12 hidden-xs">
+            <img src="{{ asset('bundles/odiseobrancarally/img/corte-01-tablet.png') }}" alt="Auto Rally 2015" width="100%" class="img-responsive offset-sm-md-top-30 visible-sm"/>
+            <img src="{{ asset('bundles/odiseobrancarally/img/corte-01.png') }}" class="img-responsive offset-top-200 hidden-sm hidden-xs" alt="Rally"/>
+        </div>
+    </div>
+</section>
+
+<section>
+
+    <div class="bg-equipos-branca">
+        <div class="container">
+            <div class="row pad-bottom-60">
+                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                    <div class="equipo-content">
+                        <h1 class="big text-center-xs-sm text-center-sm-md">PARTICIPÁ POR ESTOS PREMIOS</h1>
+                        <p class="subtitle text-center-xs-sm text-center-sm-md">Un botellón de 5 litros, una remera oficial de la marca y un par de entradas para vivir de cerca el Super Especial Fernet Branca te esperan.</p>
+                        <p class="text-center-xs-sm text-center-sm-md"> ¡Mandá tu audio ya y ganá! </p>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <img src="{{ asset('bundles/odiseobrancarally/img/botellon.png') }}" alt="Premios" class="offset-top-120 center-block img-responsive"/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-equipos-unico">
+        <svg class="svg-diagonal offset-pos-top-370" fill="#35aea6" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 768 125" enable-background="new 0 0 768 125" xml:space="preserve">
+            <polygon points="768,72.503 768,0 0,72.503 0,125 768,125 "/>
+        </svg>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12 hidden-xs hidden-sm">
+                    <img src="{{ asset('bundles/odiseobrancarally/img/iphone-paso-2.png') }}" alt="Iphone" class="offset-top-200 center-block img-responsive"/>
+                </div>
+                <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12 offset-sm-md-top-30">
+                    <h1 class="big text-center-xs-sm text-center-sm-md">Invitá a <span class="sprites bandera hidden-xs hidden-sm"><span class="sr-only">icon</span></span>
+                        <br class="hidden-xs hidden-sm"/>tus amigos</h1>
+                    <p class="subtitle text-center-xs-sm text-center-sm-md">¡Tus amigos te pueden ayudar a ganar!</p>
+                    <p class="text-center-xs-sm text-center-sm-md">Compartí con ellos la promo e invitalos a mandar un mensaje de voz al mismo número que agregaste. </p>
+                </div>
+                <div class="visible-sm visible-xs col-xs-12 col-sm-12">
+                    <img src="{{ asset('bundles/odiseobrancarally/img/iphone-paso-2-tablet.png') }}" alt="Share" class="img-responsive center-block visible-sm-inline-block" s/>
+                    <img src="{{ asset('bundles/odiseobrancarally/img/iphone-paso-2-mobile.png') }}" alt="Share" class="img-responsive center-block visible-xs"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="equipo-cierre">
+        <div class="container">
+            <div class="row">
+
+
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 bg-mobile-branca">
+                    <div class="equipo-cierre-content ">
+                        <p class="equipo-text-branca">
+                            <small class="text-center">Agregá este número a tus contactos</small>
+
+                            <span class="sprites whatsapp visible-lg-inline-block visible-md-inline-block"><span class="sr-only">icon</span></span>
+                            <span class="sprites whatsapp-xs visible-sm-inline-block visible-xs-inline-block"><span class="sr-only">icon</span></span>
+                            <span class="hidden-xs">+54 9 11 2321 7974</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 vs-content-mobile">
+                        <span class="sprites vs xs visible-xs"><span class="sr-only">icon</span></span> <br class="hidden-sm hidden-xs"/>
+
+                        <span class="sprites vs sm center-block hidden-xs"><span class="sr-only">icon</span></span> <br class="hidden-sm hidden-xs"/>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12 bg-mobile-unico">
+                    <div class="equipo-cierre-content">
+                        <p class="equipo-text-unico">
+                            <small class="text-center">Agregá este número a tus contactos</small>
+
+                            <span class="sprites whatsapp visible-lg-inline-block visible-md-inline-block"><span class="sr-only">icon</span></span>
+                            <span class="sprites whatsapp-xs visible-sm-inline-block visible-xs-inline-block"><span class="sr-only">icon</span></span>
+                            <span class="hidden-xs">+54 9 11 2321 8162</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

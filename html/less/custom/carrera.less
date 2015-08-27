@@ -1,0 +1,114 @@
+.carrera{
+	&-view{
+		position: relative;
+	}
+	.absolute{
+		margin: 0;
+		left: 0;
+		top: 0; 
+		position: absolute;
+	}
+	display: block;
+	height: 755px;
+	@media @xs-sm{
+		height: 250px;
+	}
+	width: 100%;
+	background-color: #0d0;
+	position: relative;
+	z-index: -1;
+	&-overlay{
+		position: absolute;
+		z-index: 15;
+		left: 0;
+		top: 0;
+		background-color: rgba(0, 0, 0, 0.7);
+		width: 100%;
+		height: 100%;
+		&.off{
+			background-color: transparent !important;
+			background-image: none;
+		}
+	}
+	&-control,&-ganadores{
+		position: relative;
+		margin:-600px 0px 510px;
+		&.off{
+			display: none;
+		}
+		@media @xs-sm{
+			margin:-370px 0px 510px;
+		}
+		@media @sm-md {
+			margin:-400px 0px 510px;
+		}
+	}
+	&-control{
+		margin-bottom: 420px; 
+		padding: 180px 0px 0px 0px;
+		@media @xs-sm{
+			padding: 120px 0px 0px 0px;
+			margin-bottom: 0;
+		}
+		@media @sm-md {
+			margin-bottom: 100px;
+			padding: 0px 0px 0px 0px;
+		}
+	}
+	&-ganadores{
+		position: absolute;
+		padding: 0px;
+		margin-bottom: 110px;
+		@media @xs-sm{
+			margin-bottom: 510px;
+		}
+		@media @sm-md {
+			margin-bottom: 510px;
+			
+		}
+		img{
+			margin-bottom: 20px;
+		}
+		&-mobile{
+				
+		}
+		.lista, &-mobile .lista{
+			margin: 0;
+			li{
+				font-size: 20px;
+				list-style-type: decimal;			
+				p{
+					border-bottom: 1px solid #fff;
+					margin: 0 0 0 32px;
+					padding: 5px 0px;
+					font-size: 18px;
+					@media @xs-sm {
+						margin: 0 0 0 5px;
+					}
+				}
+				&:last-child{
+					p{
+						border-bottom: none;
+						
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@iterations: 10;
+.number-loop (@i) when (@i > 0) {
+    &.number-@{i} {
+    	&:before{
+    		content: ~"'@{i}'";
+    		display: block;
+    		float: left;
+    		margin: 0px 10px 0px -20px;
+
+    	}
+        
+    }
+    .number-loop(@i - 1);
+}

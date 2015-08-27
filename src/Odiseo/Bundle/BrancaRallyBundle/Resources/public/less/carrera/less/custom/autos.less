@@ -1,0 +1,44 @@
+.auto{
+	background-repeat: no-repeat;
+	background-color: transparent !important;
+	background-position: center;
+	display: inline-block;
+	width: 55px;
+	height: 31px;
+	top: -15px;
+    left: -20px;
+    position: absolute;
+	
+	&-azul{
+		background-image: url('../img/autos/azul.png');
+	}
+	&-rojo{
+		background-image: url('../img/autos/rojo.png');
+	}
+
+	&-unico{
+		background-image: url('../img/carrera/auto-verde-1024.png');
+	}
+	&-branca{
+		background-image: url('../img/carrera/auto-amarillo-1024.png');
+	}
+
+	&-container{
+		width: 55px;
+		height: 31px;
+		z-index: 1;
+	}
+	&-tracker{
+		&-sm{
+			width: 768px;
+			height: 319px;
+		}
+		&-md{
+			position: absolute;
+			z-index: 3;
+			width: 1024px;
+			height: 462px;
+		}
+		
+	}
+}

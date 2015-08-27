@@ -1,0 +1,39 @@
+@unico-color: #6fb8ad;
+@unico-color-dark: #579087;
+@branca-color: #6fb8ad;
+@branca-color-dark: #579087;
+.reproductor{
+	&-branca,&-unico{
+		height: 500px;
+		display: inline-block;
+		width: 100%;
+		.audio2_html5.blackControllers .thumbsHolder_ThumbOFF{
+			background-color: #fff;
+			border-bottom:2px solid #ff0000;
+		}
+	}
+	&-branca{
+		.audio2_html5.blackControllers .thumbsHolder_ThumbOFF{
+			border-bottom-color: #e4e4cc;
+		}
+	}
+	&-unico{
+		.audio2_html5.blackControllers .thumbsHolder_ThumbOFF{
+			border-bottom-color: #e2e0e1;
+		}
+	}
+	&-home-example{
+		background-image: url('../img/cel-audio-example.png');
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		display: block;
+		width: 279px;
+		height: 586px;
+		margin: 40px auto 0 auto;
+		&:hover{
+			cursor:pointer;
+			background-position: -281px 0;	
+		}
+	}
+}
+

@@ -1,0 +1,167 @@
+{% extends 'OdiseoBrancaRallyBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+    {% set teamWinner1 = 'branca' %}
+    {% set teamWinner2 = 'branca' %}
+
+<header>
+    <div class="menu-mobile visible-xs visible-sm">
+        <div class="col-xs-8 col-sm-8">
+            <div class="logo mobile" ><span class="sr-only">Branca Rally 2015</span></div>
+        </div>
+    </div>
+    <div class="bg-home">
+        <div class="container">
+            <div class="row menu hidden-xs hidden-sm">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                    <div class="logo"><span class="sr-only">Branca Rally 2015</span></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1 class="text-center text-uppercase">REVIVÍ LA PASIÓN DEL <br class="hidden-xs"/>
+                        del rally mundial argentina 2015 <br class="hidden-xs"/>
+                        CON FERNET BRANCA</h1>
+                    <p class="text-center subtitle">¡Reviví las carreras! Buscá tu audio o el de tus amigos y<br class="hidden-xs"/>
+                        disfrutá la Pasión del Rally junto a Branca. </p>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <a class="btn-principal center-block visible-xs" id="comoParticipar" style="font-size: 12px" href="#">reviví Branca pasión rally</a>
+
+                    <a class="btn-principal center-block hidden-xs" style="margin-left: 31.7%;" id="comoParticipar" href="#">reviví Branca pasión rally</a>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="hidden-xs hidden-sm col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-5 col-md-offset-5 col-sm-offset-5 col-xs-offset-0">
+                    <a class="scroll-down" href="#"><span class="sr-only">scroll-down</span></a>
+                </div>
+                <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                    <img class="img-responsive pull-right-md-lg center-block" src="{{ asset('bundles/odiseobrancarally/img/marcas.png') }}" alt="Marcas"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- HEADER -->
+
+<!-- CONTENT-->
+<section>
+    <div class="bg-color-unico ">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <img class="img-responsive center-block hidden-xs" src="{{ asset('bundles/odiseobrancarally/img/telefono-promo-finalizada.png') }}" alt="Finalizada"/>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="equipo-content">
+                        <br class="hidden-xs"/><br class="hidden-xs"/><br class="hidden-xs"/>
+                        <h1 class="big text-center-xs-sm text-center-sm-md">Un desafío <br class="hidden-xs"/>
+                            único</h1>
+                        <p class="subtitle text-center-xs-sm text-center-sm-md">Miles de participantes de toda Argentina enviaron su mensaje de voz apoyando a uno de los dos equipos.</p>
+                    </div>
+                    <img class="hidden-xs" style="position: absolute; right: 5px; top: 80px;" src="{{ asset('bundles/odiseobrancarally/img/autos-finalizada.png') }}" alt="Finalizada"/>
+                </div>
+                <div class="col-xs-12 col-sm-12 visible-xs visible-sm">
+                    <img class="img-responsive center-block" src="{{ asset('bundles/odiseobrancarally/img/microfono.png') }}" alt="Finalizada"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="bg-color-{{ teamWinner1 }} diag offset-top-280">
+        <div class="sr-only">diagonal</div>
+    </div>
+    <div class="bg-color-{{ teamWinner1 }}">
+        <div class="container">
+            <div class="row pad-bottom-60">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="equipo-content ">
+                        <h1 class="big text-center-xs-sm text-center-sm-md">Carrera 01</h1>
+                        <p class="subtitle text-center-xs-sm text-center-sm-md">La primera carrera se corrió el 16/04
+                            <br class="hidden-xs"/>y tuvo a el Equipo Branca como ganador.</p>
+                        <a class="btn-principal hidden-xs" href="{{ path('odiseo_branca_rally_frontend_view_race', { 'id': race1.id }) }}">Revivi la carrera</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-top-100">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 col-xs-offset-0 col-md-offset-0">
+                        <img class="img-responsive center-block" src="{{ asset('bundles/odiseobrancarally/img/'~teamWinner1~'/ganador-mobile.png') }}" alt="Ganador"/>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 col-xs-offset-0 col-md-offset-0">
+                        <div class="ganadores inset-top-50">
+                            {{ include('OdiseoBrancaRallyBundle:Frontend:Partials/Ganadores/_ganadoresCarrera1.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    {% if teamWinner1 != teamWinner2 %}
+        <div class="bg-color-{{ teamWinner2 }} diag offset-top-150">
+            <div class="sr-only">diagonal</div>
+        </div>
+    {% endif %}
+    <div class="bg-color-{{ teamWinner2 }} ">
+        <div class="container">
+            <div class="row pad-bottom-60">
+                <div class="col-sm-12 col-xs-12 visible-xs visible-sm">
+                    <div class="equipo-content offset-top-30">
+                        <h1 class="big text-center-xs-sm text-center-sm-md">Carrera 02</h1>
+                        <p class="subtitle text-center-xs-sm text-center-sm-md">La segunda carrera se corrió el 22/04
+                            <br class="hidden-xs"/>y tuvo a el Equipo Branca como ganador.</p>
+                        <a class="btn-principal hidden-xs" href="{{ path('odiseo_branca_rally_frontend_view_race', { 'id': race2.id }) }}">Revivi la carrera</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 offset-top-100">
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 col-xs-offset-0 col-md-offset-0">
+                        <img class="img-responsive center-block" src="{{ asset('bundles/odiseobrancarally/img/'~teamWinner2~'/ganador-mobile.png') }}" alt="Ganador"/>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-2 col-xs-offset-0 col-md-offset-0">
+                        <div class="ganadores inset-top-50">
+                            {{ include('OdiseoBrancaRallyBundle:Frontend:Partials/Ganadores/_ganadoresCarrera2.html.twig') }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 hidden-xs hidden-sm">
+                    <div class="equipo-content">
+                        <h1 class="big text-center-xs-sm text-center-sm-md">Carrera 02</h1>
+                        <p class="subtitle text-center-xs-sm text-center-sm-md">La segunda carrera se corrió el 22/04
+                            <br class="hidden-xs"/>y tuvo a el Equipo Branca como ganador.</p>
+                        <a class="btn-principal hidden-xs" href="{{ path('odiseo_branca_rally_frontend_view_race', { 'id': race2.id }) }}">Revivi la carrera</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section>
+        <div class="bg-color-unico diag offset-top-150">
+            <div class="sr-only">diagonal</div>
+        </div>
+        <div class="bg-color-unico ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <h1 class="text-center">Seguí a Fernet Branca y enterate de todas nuestras promociones.</h1>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 social-content">
+                        <ul class="social-finaliza center-block">
+                            <li><a href="https://www.facebook.com/pages/Fernet-Branca/352431311560295" target="_blank" class="facebook"><span class="sr-only">icon social</span></a></li>
+                            <li><a href="https://twitter.com/FernetBrancaARG" target="_blank" class="twitter"><span class="sr-only">icon social</span></a></li>
+                            <li><a href="https://instagram.com/fernetbrancaarg" target="_blank" class="instagram"><span class="sr-only">icon social</span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

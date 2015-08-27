@@ -2,10 +2,13 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: odiseo.yml }
+    - { resource: admin.yml }
+    - { resource: @OdiseoProjectBundle/Resources/config/app/main.yml }
 
 framework:
     #esi:             ~
-    #translator:      { fallbacks: ["%locale%"] }
+    translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -34,7 +37,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ OdiseoBrancaRallyBundle ]
+    bundles:        [ OdiseoBrancaRallyBundle, OdiseoBackendBundle, EasyAdminBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -71,3 +74,27 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+dubture_f_fmpeg:
+    ffmpeg_binary: %ffmpeg_binary%
+    ffprobe_binary: %ffprobe_binary%
+    binary_timeout: 300 # Use 0 for infinite
+    threads_count: 4
+
+sylius_resource:
+    resources:
+        odiseo.participation:
+            driver: doctrine/orm
+            classes:
+                model: Odiseo\Bundle\BrancaRallyBundle\Entity\UserRaceParticipation
+                repository: Odiseo\Bundle\BrancaRallyBundle\Repository\UserRaceParticipationRepository
+        odiseo.race:
+            driver: doctrine/orm
+            classes:
+                model: Odiseo\Bundle\BrancaRallyBundle\Entity\Race
+                repository: Odiseo\Bundle\BrancaRallyBundle\Repository\RaceRepository
+        odiseo.user:
+            driver: doctrine/orm
+            classes:
+                model: Odiseo\Bundle\BrancaRallyBundle\Entity\User
+                repository: Odiseo\Bundle\BrancaRallyBundle\Repository\UserRepository

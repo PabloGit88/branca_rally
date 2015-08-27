@@ -1,0 +1,42 @@
+Odiseo\Bundle\BrancaRallyBundle\Entity\Race:
+    type: entity
+    repositoryClass: Odiseo\Bundle\BrancaRallyBundle\Repository\RaceRepository
+    table: race
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        createdAt:
+            column: created_at
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updatedAt:
+            column: updated_at
+            type: datetime
+            nullable: true
+            gedmo:
+              timestampable:
+                on: update  
+        name:
+            column: name
+            type: string
+            length: 255
+        isActive:
+            type: boolean
+            column: is_active
+        startDate:
+            column: start_date
+            type: datetime
+        endDate:
+            column: end_date
+            type: datetime
+         
+    oneToMany:
+        participations:
+            targetEntity: \Odiseo\Bundle\BrancaRallyBundle\Entity\UserRaceParticipation
+            mappedBy: race

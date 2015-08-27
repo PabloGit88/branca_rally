@@ -1,0 +1,18 @@
+{% set ganadores =[
+{name: "Marcos Gomez",dni:"xx.xxx.495"},
+{name: "Daniel Aguirre",dni:"xx.xxx.687"},
+{name: "Roque Alejandro Contrereras",dni:"xx.xxx.031"},
+{name: "Eduardo Steremberg",dni:"xx.xxx.122"},
+{name: "Mauro Pedranti",dni:"xx.xxx.119"},
+{name: "Daniel Alberto Quiroga",dni:"xx.xxx.987"},
+{name: "Facundo Zuriaga",dni:"xx.xxx.678"},
+{name: "Gustavo Bongiorno",dni:"xx.xxx.798"},
+{name: "Mario Dominguez",dni:"xx.xxx.968"},
+{name: "Daniel Vocos",dni:"xx.xxx.396"}
+]
+%}
+<ol class="lista ">
+{% for ganador in ganadores %}
+    <li><p>{{ ganador.name }} <span class="pull-right">{{ ganador.dni }}</span></p></li>
+{% endfor %}
+</ol>

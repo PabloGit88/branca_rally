@@ -1,4 +1,26 @@
 services:
-#    odiseo_branca_rally.example:
-#        class: Odiseo\Bundle\BrancaRallyBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    odiseo_branca_rally.media_converter:
+        class: Odiseo\Bundle\BrancaRallyBundle\Converter\MediaConverter
+        arguments: [@service_container]
+
+    app.services.mail:
+        class: Odiseo\Bundle\BrancaRallyBundle\Services\MailService
+        arguments: ["@service_container", %email_from% , %email_subject% , %email_name%]
+         
+    app.services.token:
+        class: Odiseo\Bundle\BrancaRallyBundle\Services\TokenService
+        arguments: ["%token_email%"]
+
+    odiseo.facebook:
+        class:     Odiseo\Bundle\BrancaRallyBundle\Facebook\Facebook
+        arguments: ['%facebook_app_id%', '%facebook_app_secret%', '%facebook_app_host%', '%facebook_tab_url%', '%facebook_login_scope%']
+
+    brancarally.form.type.userRaceParticipation:
+        class: Odiseo\Bundle\BrancaRallyBundle\Form\Type\UserRaceParticipationType
+        tags:
+            - { name: form.type, alias: odiseo_brancarally_userRaceParticipation }
+
+    brancarally.form.type.user:
+        class: Odiseo\Bundle\BrancaRallyBundle\Form\Type\UserType
+        tags:
+            - { name: form.type, alias: odiseo_brancarally_user }

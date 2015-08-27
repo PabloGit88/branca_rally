@@ -1,0 +1,40 @@
+{% set searchQuerys = request.get('search') %}
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-header">
+				<h3 class="box-title">Filtros</h3>
+				<div class="box-tools pull-right">
+					<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+				</div>
+			</div>
+			<form action="{{ path('odiseo_branca_rally_backend_participation_search') }}" method="get">
+				<div class="box-body">
+					<div class="row">
+						<div class="form-group col-sm-2">
+							<input type="hidden" name="entity" value="UserRaceParticipation">
+							<input type="hidden" name="action" value="search">
+							<select class="form-control" name="search[race]">
+								{% for raceId, raceName in races %}
+								<option value="{{ raceId }}"{{ searchQuerys is not null and searchQuerys['race'] is defined and raceId==searchQuerys['race']?' selected="selected"':'' }}>{{ raceName }}</option>
+								{% endfor %}		                       
+							</select>
+						</div>
+						
+						<div class="form-group col-sm-2">
+							<select class="form-control" name="search[team]">
+								{% for teamId, teamName in teams %}
+								<option value="{{ teamId }}"{{ searchQuerys is not null and searchQuerys['team'] is defined and teamId==searchQuerys['team']?' selected="selected"':'' }}>{{ teamName }}</option>
+								{% endfor %}
+							</select>
+						</div>
+					</div>
+				</div>
+				<div class="box-footer">
+					<button type="submit" class="btn btn-primary">Filtrar</button>
+					<a href="{{ path('admin', { entity: 'UserRaceParticipation', action: 'list' }) }}" class="btn btn-default">Limpiar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,52 +1,161 @@
-{% extends 'GeckoBackendBundle::layout.html.twig' %}
+{% extends 'EasyAdminBundle::layout.html.twig' %}
 
-{% block section_title %}
+{% block content_title %}
 <h1>Dashboard <small>Bienvenido</small></h1>
 {% endblock %}
 
-{% block breadcrums %}
-<ol class="breadcrumb">
-	<li class="active"><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-</ol>
-{% endblock %}
-
 {% block content %}
+
 <div class="row">
-	<div class="col-lg-4 col-xs-4">
-		<div class="small-box bg-aqua">
-			<div class="inner">
-				<h3>{{ totalOrders }}</h3>
-				<p>Pedidos Totales</p>
-			</div>
-			<div class="icon"><i class="ion ion-stats-bars"></i></div>
-			<a href="{{ path('odiseo_pickmystuff_backend_order_index')}}" class="small-box-footer">
-				Ver Todos Los Pedidos <i class="fa fa-arrow-circle-right"></i>
-			</a>
-		</div>
+	<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-aqua"><i class="fa fa-flag-o"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-text">Total de participaciones</span>
+				<span class="info-box-number">{{ stadistics.racesTotals }}</span>
+			</div><!-- /.info-box-content -->
+		</div><!-- /.info-box -->
 	</div>
-	<div class="col-lg-4 col-xs-4">
-		<div class="small-box bg-green">
-			<div class="inner">
-				<h3>{{ complete }}</h3>
-				<p>Pedidos Completados</p>
-			</div>
-			<div class="icon"><i class="ion ion-stats-bars"></i></div>
-			<a href="{{ path('odiseo_pickmystuff_backend_order_index')}}" class="small-box-footer">
-				Ver Todos Los Pedidos <i class="fa fa-arrow-circle-right"></i>
-			</a>
-		</div>
+	<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-green"><i class="fa fa-user"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-text">Participaciones en el Equipo Único</span>
+				<span class="info-box-number">{{ stadistics.team1Totals }}</span>
+			</div><!-- /.info-box-content -->
+		</div><!-- /.info-box -->
 	</div>
-	<div class="col-lg-4 col-xs-4">
-		<div class="small-box bg-red">
-			<div class="inner">
-				<h3>{{ notComplete }}</h3>
-				<p>Pedidos incompletos</p>
-			</div>
-			<div class="icon"><i class="ion ion-stats-bars"></i></div>
-			<a href="{{ path('odiseo_pickmystuff_backend_order_index')}}" class="small-box-footer">
-				Ver Todos Los Pedidos <i class="fa fa-arrow-circle-right"></i>
-			</a>
-		</div>
+	<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-yellow"><i class="fa fa-user"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-text">Participaciones en el Equipo Branca</span>
+				<span class="info-box-number">{{ stadistics.team2Totals }}</span>
+			</div><!-- /.info-box-content -->
+		</div><!-- /.info-box -->
 	</div>
 </div>
+<div class="row">
+	<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-aqua"><i class="fa fa-clock-o"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-text">Duración total de los audios</span>
+				<span class="info-box-number">{{ stadistics.soundDurationTotals }} seg</span>
+			</div><!-- /.info-box-content -->
+		</div><!-- /.info-box -->
+	</div>
+	<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-green"><i class="fa fa-clock-o"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-text">Duración de los audios del Equipo Único</span>
+				<span class="info-box-number">{{ stadistics.team1SoundsDurationTotals }} seg</span>
+			</div><!-- /.info-box-content -->
+		</div><!-- /.info-box -->
+	</div>
+	<div class="col-md-4 col-sm-6 col-xs-12">
+		<div class="info-box">
+			<span class="info-box-icon bg-yellow"><i class="fa fa-clock-o"></i></span>
+			<div class="info-box-content">
+				<span class="info-box-text">Duración de los audios del Equipo Branca</span>
+				<span class="info-box-number">{{ stadistics.team2SoundsDurationTotals }} seg</span>
+			</div><!-- /.info-box-content -->
+		</div><!-- /.info-box -->
+	</div>
+</div>
+
+{% for race in stadistics.races %}
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box box box-default box-solid">
+			<div class="box-header with-border">
+				<h3 class="box-title">Estadísticas de la {{ race.entity.name }}</h3>
+				<div class="box-tools pull-right">
+					<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+				</div><!-- /.box-tools -->
+			</div>
+			<div class="box-body">
+				<div class="row">
+					<div class="col-lg-4 col-sm-6">
+						<div class="small-box bg-aqua">
+							<div class="inner">
+								<h3>{{ race.teamParticipations.totals }}</h3>
+								<p>Total de participantes</p>
+							</div>
+							<div class="icon">
+								<i class="ion ion-flag"></i>
+							</div>
+							<a href="{{ path('odiseo_branca_rally_backend_participation_search', {'entity': 'UserRaceParticipation', 'action': 'search', 'search': { 'race': race.entity.id }}) }}" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div><!-- ./col -->
+					<div class="col-lg-4 col-sm-6">
+						<div class="small-box bg-green">
+							<div class="inner">
+								<h3>{{ race.teamParticipations[constant('Odiseo\\Bundle\\BrancaRallyBundle\\Game\\Team::TEAM1')] }}</h3>
+								<p>Participaciones en el Equipo Único</p>
+							</div>
+							<div class="icon">
+								<i class="ion ion-man"></i>
+							</div>
+							<a href="{{ path('odiseo_branca_rally_backend_participation_search', {'entity': 'UserRaceParticipation', 'action': 'search', 'search': { 'race': race.entity.id, 'team': constant('Odiseo\\Bundle\\BrancaRallyBundle\\Game\\Team::TEAM1') }}) }}" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div><!-- ./col -->
+					<div class="col-lg-4 col-sm-6">
+						<div class="small-box bg-yellow">
+							<div class="inner">
+								<h3>{{ race.teamParticipations[constant('Odiseo\\Bundle\\BrancaRallyBundle\\Game\\Team::TEAM2')] }}</h3>
+								<p>Participaciones en el Equipo Branca</p>
+							</div>
+							<div class="icon">
+								<i class="ion ion-man"></i>
+							</div>
+							<a href="{{ path('odiseo_branca_rally_backend_participation_search', {'entity': 'UserRaceParticipation', 'action': 'search', 'search': { 'race': race.entity.id, 'team': constant('Odiseo\\Bundle\\BrancaRallyBundle\\Game\\Team::TEAM2') }}) }}" class="small-box-footer">Mas info <i class="fa fa-arrow-circle-right"></i></a>
+						</div>
+					</div><!-- ./col -->
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-sm-6">
+						<div class="small-box bg-aqua">
+							<div class="inner">
+								<h3>{{ race.teamSoundsDurations.totals }} seg</h3>
+								<p>Duración total de los audios</p>
+							</div>
+							<div class="icon">
+								<i class="ion ion-clock"></i>
+							</div>
+						</div>
+					</div><!-- ./col -->
+					<div class="col-lg-4 col-sm-6">
+						<div class="small-box bg-green">
+							<div class="inner">
+								<h3>{{ race.teamSoundsDurations[constant('Odiseo\\Bundle\\BrancaRallyBundle\\Game\\Team::TEAM1')] }} seg</h3>
+								<p>Duración de los audios en el Equipo Único</p>
+							</div>
+							<div class="icon">
+								<i class="ion ion-clock"></i>
+							</div>
+						</div>
+					</div><!-- ./col -->
+					<div class="col-lg-4 col-sm-6">
+						<div class="small-box bg-yellow">
+							<div class="inner">
+								<h3>{{ race.teamSoundsDurations[constant('Odiseo\\Bundle\\BrancaRallyBundle\\Game\\Team::TEAM2')] }} seg</h3>
+								<p>Duración de los audios en el Equipo Branca</p>
+							</div>
+							<div class="icon">
+								<i class="ion ion-clock"></i>
+							</div>
+						</div>
+					</div><!-- ./col -->
+				</div>
+			</div>
+			{% if not race.canShow %}
+			<div class="overlay">
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>      
+{% endfor %}
 {% endblock %}

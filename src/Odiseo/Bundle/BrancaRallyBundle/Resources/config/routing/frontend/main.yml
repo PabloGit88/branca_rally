@@ -1,0 +1,31 @@
+odiseo_branca_rally_frontend_home:
+    path:     /home
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Frontend/Home:index" }
+
+odiseo_branca_rally_frontend_home_proximamente:
+    path:     /
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Frontend/Home:index" }
+
+odiseo_branca_rally_frontend_home_races_winners:
+    path:     /carreras-y-ganadores
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Frontend/Home:racesAndWinners" }
+
+odiseo_branca_rally_frontend_private_participation:
+    path:     /pp/{token}
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Frontend/Home:privateParticipation" } 
+
+odiseo_branca_rally_frontend_shared_participation:
+    path:     /pc/{id}
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Frontend/Home:sharedParticipation" } 
+
+odiseo_branca_rally_frontend_view_race:
+    path:     /carrera/{id}
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Frontend/Home:viewRace" }  
+      
+odiseo_branca_rally_frontend_shared_facebook:
+    path:     /compartir/{id}
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Frontend/Home:sharedFacebook" } 
+    
+odiseo_branca_rally_frontend_terms:
+    path:     /bases-y-condiciones
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Frontend/Home:terms" }

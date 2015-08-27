@@ -1,0 +1,17 @@
+<audio id="{{ playerId }}" preload="metadata">
+	<div class="xaudioplaylist">
+		{% for participation in participations %}
+		{% set soundBasename = participation.soundFileBasename %}
+		<ul>
+			<li class="xtitle">{{ participation.user.fullname }}</li>
+			<li class="xauthor">{{ participation.user.fullname }}</li>
+			<li class="ximage">{{ asset('bundles/odiseobrancarally/img/'~team~'/img-reproductor.png') }}</li>
+			<li class="xcategory">ALL CATEGORIES</li>
+			<li class="xsources_aac">{{ asset('uploads/'~soundBasename~'.aac') }}</li>
+			<li class="xsources_mp3">{{ asset('uploads/'~soundBasename~'.mp3') }}</li>
+			<li class="xsources_ogg">{{ asset('uploads/'~soundBasename~'.ogg') }}</li>
+		</ul>
+		{% endfor %}
+	</div>
+	No HTML5 audio playback capabilities for this browser. Use <a href="https://www.google.com/intl/en/chrome/browser/">Chrome Browser!</a>
+</audio>

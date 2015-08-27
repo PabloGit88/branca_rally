@@ -1,0 +1,192 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% trans_default_domain "EasyAdminBundle" %}
+{% block body_class 'admin list ' ~ entity.name|lower %}
+
+{% block head_stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/easyadmin/stylesheet/bootstrap-toggle.min.css') }}">
+{% endblock %}
+
+{% block content_title %}
+    {% if 'search' == app.request.get('action') %}
+        <h1>{{ 'search.page_title'|transchoice(paginator.nbResults)|raw }}</h1>
+    {% else %}
+        <h1>{{ entity.list.title|default('list.page_title')|trans({'%entity_name%': entity.label|trans}) }}</h1>
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+{% if 'search' == app.request.get('action') %}
+    {% set request_attributes = { action: 'search', entity: entity.name, query: app.request.get('query')|default('') } %}
+{% else %}
+    {% set request_attributes = { action: 'list', entity: entity.name, sortDirection: app.request.get('sortDirection', 'DESC') } %}
+{% endif %}
+
+
+
+
+
+{% if (entity.name != 'UserRaceParticipation' and entity.name != 'User')%}
+<div class="row">
+	<div class="col-xs-2 pull-right">
+		<div id="content-actions">			
+			<a class="btn btn-block btn-primary" href="{{ path('admin', { entity: entity.name, action: 'new' }) }}">
+				{{ entity.new.action_label|default('action.new')|trans({'%entity_name%': entity.label|trans}) }}
+			</a>
+		</div>
+	</div>
+</div>
+<br><br>
+{% endif %}
+
+{% if entity.name == 'UserRaceParticipation' %}
+{{ render(controller('OdiseoBrancaRallyBundle:Backend/Main:downloadExcel', {'request': app.request})) }}
+{{ render(controller('OdiseoBrancaRallyBundle:Backend/Main:participationFilterForm', {'request': app.request})) }}
+{% endif %}
+
+<div class="row">
+	<div class="col-xs-12">
+		<div class="box">
+			<div class="box-body table-responsive no-padding">
+				<table class="table table-bordered table-hover">
+					<thead>
+						<tr>
+							{% for field, metadata in fields %}
+                            {% set isSortingField = metadata.property == app.request.get('sortField') %}
+
+                            <th data-property-name="{{ metadata.property }}" class="{{ isSortingField ? 'sorted' : '' }} {{ metadata.virtual|default(false) ? 'virtual' : '' }} {{ metadata.dataType|lower }}">
+                                {% if isSortingField %}
+                                    {% set sortDirection = ('DESC' == app.request.get('sortDirection')) ? 'ASC' : 'DESC' %}
+                                    {% set request_attributes = request_attributes|merge({ sortField: metadata.property }) %}
+                                {% endif %}
+
+                                {# for now you cannot sort by virtual fields not directly mapped to entity attributes #}
+                                {% if not metadata.virtual|default(false) %}
+                                    <a href="{{ path('admin', request_attributes|merge({ sortField: metadata.property, sortDirection: sortDirection|default('DESC') })) }}">
+                                        {% if isSortingField and sortDirection == 'DESC' %}
+                                            <i class="fa fa-caret-up"></i>
+                                        {% elseif isSortingField and sortDirection == 'ASC' %}
+                                            <i class="fa fa-caret-down"></i>
+                                        {% else %}
+                                            <i class="fa fa-sort"></i>
+                                        {% endif %}
+
+                                        {% if metadata.label %}
+                                            {{ metadata.label|trans }}
+                                        {% elseif 'id' == metadata.property %}
+                                            ID
+                                        {% else %}
+                                            {{ field|humanize }}
+                                        {% endif %}
+                                    </a>
+                                {% else %}
+                                    {% if metadata.label %}
+                                        <span>{{ metadata.label }}</span>
+                                    {% else %}
+                                        <span>{{ field|humanize }}</span>
+                                    {% endif %}
+                                {% endif %}
+                            </th>
+                        	{% endfor %}
+                            <th>
+                                <span>{{ 'list.row_actions'|trans }}</span>
+                            </th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for item in paginator.currentPageResults %}
+                        <tr data-id="{{ attribute(item, entity.primary_key_field_name) }}">
+                            {% for field, metadata in fields %}
+                                {% set isSortingField = metadata.property == app.request.get('sortField') %}
+
+                                <td class="{{ isSortingField ? 'sorted' : '' }} {{ metadata.dataType|lower }}">
+                                    {% if metadata.type in ['array', 'json_array', 'simple_array', 'text'] %}
+                                        {{ easyadmin_render_field(item, metadata)|easyadmin_truncate }}
+                                    {% elseif metadata.fieldType in ['audio']%}
+                                    	<audio controls>
+                                    		<source src="{{ asset('uploads/'~easyadmin_render_field(item, metadata))~'.aac' }}" type="audio/aac">
+                                    		<source src="{{ asset('uploads/'~easyadmin_render_field(item, metadata))~'.mp3' }}" type="audio/mp3">
+                                    		<source src="{{ asset('uploads/'~easyadmin_render_field(item, metadata))~'.ogg' }}" type="audio/ogg">
+                                    	</audio>
+                                    {% elseif metadata.fieldType in ['facebook_link'] %}
+                                    	{% set facebookField = easyadmin_render_field(item, metadata) %}
+                                    	{% if facebookField != '<span class="label">NULL</span>' %}
+                                        <a href="https://www.facebook.com/{{ easyadmin_render_field(item, metadata) }}" target="_blank">Facebook Link</a>
+                                    	{% endif %}
+                                    {% else %}
+                                        {{ easyadmin_render_field(item, metadata) }}
+                                    {% endif %}
+                                </td>
+                            {% endfor %}
+								{% if entity.name == 'Race' %}
+	                            <td>
+	                                <a class="btn btn-success pull-right" onclick="confirm('¿Confirma el envio de emails?');ajaxUtil.sendEmails(this,'{{ path('odiseo_branca_rally_frontend_send_email_view', { id: attribute(item, entity.primary_key_field_name) }) }}')">Enviar Email Carrera</a>
+	                            </td>
+	                            <td>
+	                                <a class="btn btn-success pull-right" onclick="confirm('¿Confirma el envio de emails?');ajaxUtil.sendEmails( this, '{{ path('odiseo_branca_rally_frontend_send_email_winner', { id: attribute(item, entity.primary_key_field_name) }) }}')">Enviar Email Ganador</a>
+	                            </td>
+								{% endif %}
+                                <td class="actions btn-group">
+                                    {% for action in easyadmin_config('list_actions') %}
+                                        <a class="btn btn-default" href="{{ path('admin', { action: action, entity: entity.name, id: attribute(item, entity.primary_key_field_name) }) }}">
+                                            {{- ('action.' ~ action)|trans -}}
+                                        </a>
+                                    {% endfor %}
+                                </td>
+                        </tr>
+						{% else %}
+                        <tr>
+                            <td colspan="{{ fields|length + 1 }}">{{ 'search.no_results'|trans }}</td>
+                        </tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				
+				{{ include('@EasyAdmin/_list_paginator.html.twig') }}
+			</div><!-- /.box-body -->
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block body_javascript %}
+    {{ parent() }}
+
+    <script src="{{ asset('bundles/easyadmin/javascript/bootstrap-toggle.min.js') }}"></script>
+    <script src="{{ asset('bundles/odiseobrancarally/js/jquery.table2excel.js') }}"></script>
+	<script type="text/javascript" src="{{ asset('bundles/odiseobrancarally/js/ajaxUtil.js') }}"></script>
+    <script type="text/javascript">
+        $(function() {
+            $('#main table .toggle input[type="checkbox"]').change(function() {
+                var toggle = $(this);
+                var newValue = toggle.prop('checked');
+                var oldValue = !newValue;
+
+                var columnIndex = $(this).closest('td').index() + 1;
+                var propertyName = $('table th.toggle:nth-child(' + columnIndex + ')').data('property-name');
+
+                var toggleUrl = "{{ path('admin', { action: 'toggle', entity: entity.name })|raw }}"
+                              + "&id=" + $(this).closest('tr').data('id')
+                              + "&property=" + propertyName
+                              + "&newValue=" + newValue.toString();
+
+                var toggleRequest = $.ajax({ type: "GET", url: toggleUrl, data: {} });
+
+                toggleRequest.done(function(result) {});
+
+                toggleRequest.fail(function(result) {
+                    // in case of error, restore the original value and disable the toggle
+                    toggle.bootstrapToggle(oldValue == true ? 'on' : 'off');
+                    toggle.bootstrapToggle('disable');
+                });
+            });
+            $("button.download").click(function(){
+          	  $(".tableDownloadExcel").table2excel({
+          	    exclude: ".noExl",
+          	    name: "Participaciones"
+          	  });
+         	});
+        });
+    </script>
+{% endblock %}

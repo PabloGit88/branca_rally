@@ -1,0 +1,97 @@
+.absolute{
+	position:absolute;
+	left: 0;
+	top: 0;
+}
+
+.pista{
+	background-repeat: no-repeat;
+	display: inline-block;
+	width: 1031px;
+	height: 619px;
+	top: 0px;
+	position: absolute;
+	z-index: 0;
+	&-pista1{
+		background-image: url('../img/pistas/pista1.png');
+	}
+  	&-pista2{
+		background-image: url('../img/pistas/pista2.png');
+	}
+
+	
+	&-1024{
+		background-image: url('../img/carrera/pista-1024.png');	
+	}
+	&-768{
+		background-image: url('../img/carrera/pista-768.png');	
+	}
+	&-bg-pasto{
+		background-repeat: repeat-y; 
+		background-size: cover;
+		background-position: center;
+		background-image: url('../img/carrera/bg.jpg');
+		padding: 190px 0;
+		height: 100%;
+	}
+	&-puente-container{
+		display: inline-block;	
+		position: absolute;	
+		left: 384px;
+		top: 64px;
+		z-index: 1;
+		&.under{
+			z-index: 10;
+		}
+		&.md{
+			left: 384px;
+			top: 64px;
+		}
+		&.sm{
+			left: 297px;
+			top: 48px;
+		}
+	}
+	&.md{
+		width: 1024px;
+		height: 462px;
+	}
+	&.sm{
+		width: 768px;
+		height: 319px;
+	}
+}
+
+.video{
+	&-race{
+		display: inline-block;
+		position: relative;
+		float: left;
+		width: 100%;
+		height: auto;
+		&-controls{
+			position: absolute;
+			z-index: 20;
+			width: 100%;
+			height: 100%;
+			display: block;
+
+		}
+		&-content{
+			position: relative;
+		}
+	}
+	&-play-carrera{
+		background-color: transparent !important; 
+		width: auto !important;
+		max-width: 320px !important;
+		min-width: 280px !important;
+		z-index: 16 !important;
+		position: absolute !important;
+		left: 50% !important;
+		top: 50% !important;
+		margin-top: -35px !important;
+		margin-left: -280px / 2 !important;
+	}
+	
+}

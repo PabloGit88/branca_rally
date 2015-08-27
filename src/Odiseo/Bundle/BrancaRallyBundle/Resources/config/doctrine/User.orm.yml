@@ -1,0 +1,47 @@
+Odiseo\Bundle\BrancaRallyBundle\Entity\User:
+    type: entity
+    table: user
+    fields:
+        facebookUserId:
+            column: facebook_user_id
+            type: string
+            length: 255
+            nullable: true
+        facebookAccessToken:
+            column: facebook_access_token
+            type: string
+            length: 255
+            nullable: true
+        dni:
+            column: dni
+            type: string
+            length: 255
+            nullable: true
+        name:
+            column: name
+            type: string
+            length: 255
+            nullable: true
+        lastname:
+            column: lastname
+            type: string
+            length: 255
+            nullable: true
+        phone:
+            column: phone
+            type: string
+            length: 255
+            nullable: true
+    attributeOverride:
+      emailCanonical:
+        unique: false
+        name: emailCanonical
+        column: email_canonical
+        length: 255
+        nullable: false
+        type: string
+         
+    oneToMany:
+        participations:
+            targetEntity: \Odiseo\Bundle\BrancaRallyBundle\Entity\UserRaceParticipation
+            mappedBy: user

@@ -1,3 +1,0 @@
-odiseo_branca_rally_backend_dashboard:
-    pattern: /
-    defaults: { _controller: "OdiseoBrancaRallyBundle:Backend/Main:dashboard" }

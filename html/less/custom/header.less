@@ -1,0 +1,97 @@
+header{
+	display: block;
+}
+
+.logo{
+	display: inline-block;
+	width: 251px;
+	height: 110px;
+	.b-full("../img/logo.png");
+	&.mobile{
+		width: 100%;
+		height: auto;
+		background-image: url('../img/logo-home.svg');
+		@media @xs-sm{
+			width: 99px;
+			height: 43px;
+			margin-top: 5px;
+		}
+		@media @sm-md {
+			width: 182px;
+			height: 83px;
+			margin: 18px 0 0 50px;
+
+		}
+	}
+	&-landing{
+		&-unico,&-branca{
+			padding: 188px 0 0 20px;
+			&.header-mobile{
+				@media @xs-sm{
+					width: 99px;
+					height: 89px;
+					padding: 0;
+				}
+			}
+		}
+		&-unico-rally,&-branca-rally{
+			&.mobile{
+				width: 100%;
+				height: auto;			
+				@media @xs-sm{
+					width: 99px;
+					height: 47px;
+					margin-top: 5px;
+				}
+				@media @sm-md {
+					width: 182px;
+					height: 83px;
+					margin: 18px 0 0 50px;
+
+				}
+			}
+
+		}
+		&-unico{
+			display: inline-block;
+			width: 226px;
+			height: 188px;
+			padding: 168px 0 0 20px;
+			.b-full("../img/unico/escudo-unico-auto.png");
+			background-size: 100% auto;
+			background-position: center;
+			&-rally{
+				display: inline-block;
+				width: 232px;
+				height: 102px;
+				.b-full("../img/unico/logo-rally-unico.png");
+				&.mobile{background-image: url('../img/logo-unico.svg');}
+			}
+		}
+		&-branca{
+			display: inline-block;
+			width: 211px;
+			height: 188px;
+			.b-full("../img/branca/escudo-branca-auto.png");
+			@media @xs-sm {
+				width: 211px;
+				height: 188px;
+			}
+			&-rally{
+				display: inline-block;
+				width: 232px;
+				height: 102px;
+				.b-full("../img/branca/logo-rally-branca.png");
+				&.mobile{background-image: url('../img/logo-branca.svg');}
+			}
+		}
+		&-content{
+			padding: 30px 0px;
+			.logo-landing{
+				&-unico,&-branca{
+					display: block;
+				}
+			}
+		}
+	}
+}

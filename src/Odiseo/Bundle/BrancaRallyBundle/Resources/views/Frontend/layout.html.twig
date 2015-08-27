@@ -2,99 +2,83 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />	
-		<meta name="keywords" content="pickmystuff">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="mobile-web-app-capable" content="yes">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        
-        <title>{% block title %}Pick My Stuff {% endblock %}</title>
+		<meta name="keywords" content="branca, rally">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		        
+		<meta property="og:title" content="{% block og_title %}Branca Rally 2015{% endblock %}" />
+    	<meta property="og:description" content="{% block og_description %}Fernet Branca te invita a vivir la pasión del World Rally Championship{% endblock %}" />
+    	<meta property="og:image" content="{% block og_image %}{{ asset('bundles/odiseobrancarally/img/facebookIcon1024.png', absolute=true) }}{% endblock %}" />
+    	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <link rel="Shortcut Icon" type="image/x-icon" href="http://www.branca.com.ar/wp-content/themes/branca/favicon.ico">
+
+        <title>{% block title %}Branca Rally 2015{% endblock %}</title>
         
 	    <!-- stylesheets -->
-	    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-	    <link href='http://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
-	    <link rel="shortcut icon" href="{{ asset('bundles/odiseopickmystuff/images/logo.png') }}" type="image/x-icon">
 		{# stylesheets... #}
 		{% block stylesheets %}
 		{% stylesheets output='css/frontend.min.css' filter='cssrewrite'
-			'bundles/odiseopickmystuff/css/bootstrap.min.css'
-			'bundles/odiseopickmystuff/css/main.css'
+			'//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'
+			'bundles/odiseobrancarally/css/audio2_html5.css'
+            'bundles/odiseobrancarally/css/carrera.css'
+			'bundles/odiseobrancarally/css/brancaRally2015.css'
+			'bundles/odiseobrancarally/css/main.css'
+
 		%}
 		<link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
 		{% endstylesheets %}
 		{% endblock %}
     </head>
     <body>
-    	<div class="container wrapper">
-    		{% block header %}
-    		<header>
-	    		<nav class="navbar navbar-default" role="navigation">
-					<div class="navbar-header">
-	    				<button type="button" class="navbar-toggle" 
-	    					data-toggle="collapse"
-	    					data-target=".navbar-ex1-collapse">
-	      					<span class="icon-bar"></span>
-	      					<span class="icon-bar"></span>
-	      					<span class="icon-bar"></span>
-	    				</button>
-    				</div>   					
- 
-  					<div class="collapse navbar-collapse navbar-ex1-collapse">
-		    			<!-- Brand and toggle get grouped for better mobile display -->
-							<ul class="nav navbar-nav navbar-left">
-	      					  <li><a class="facebook" href="https://www.facebook.com/pickmystuffpr" target="_blank"><img class="img-responsive" src="{{ asset('bundles/odiseopickmystuff/images/facebook-icon.png') }}"></a></li>
-	      					  <li><a class="twitter" href="#"><img class="img-responsive" src="{{ asset('bundles/odiseopickmystuff/images/twitter-icon.png') }}"></a></li>
-							</ul>
-							<ul class="nav navbar-nav navbar-right">
-							{% set currentPath = app.request.attributes.get('_route') %}
-	      					  <li class="home{%  if currentPath == 'odiseo_pick_my_stuff_frontend_home' %} active{% else %}''{% endif %}"><a href="{{ path('odiseo_pick_my_stuff_frontend_home') }}">Inicio</a></li>
-	      					  <li><span>::</span></li>
-	      					  <li class="about{% if(currentPath == 'odiseo_pick_my_stuff_frontend_aboutus') %} active{% else %}''{% endif %}"><a href="{{ path('odiseo_pick_my_stuff_frontend_aboutus') }}">Quiénes Somos</a></li>
-	      					  <li><span>::</span></li>
-	      					  <li class="services{% if(currentPath == 'odiseo_pick_my_stuff_frontend_services') %} active{% else %}''{% endif %}"><a href="{{ path('odiseo_pick_my_stuff_frontend_services') }}">Servicios</a></li>
-	      					  <li><span>::</span></li>
-	      					  <li class="contactus{% if(currentPath == 'odiseo_pick_my_stuff_frontend_contact') %} active{% else %}''{% endif %}"><a href="{{ path('odiseo_pick_my_stuff_frontend_contact') }}">Contáctanos</a></li>
-	      					  <li><span>::</span></li>
-	      					  <li class="faq{% if(currentPath == 'odiseo_pick_my_stuff_frontend_faq') %} active{% else %}''{% endif %}"><a href="{{ path('odiseo_pick_my_stuff_frontend_faq') }}">FAQS</a></li>
-							</ul>      					  
-		    		</div>
-		    	</nav> 
-    		</header>
-    		{% endblock %}
-    		<div id="content" class="{% block contentClass %}{% endblock %}">
-				{% block content %}
-				{% endblock %}
-			</div>
-		</div>
+    	{% block header %}
+    	{% endblock %}
+
+		{% block content %}
+		{% endblock %}
 		<footer>
-			<div class="row">
-				<div class="col-xs-6 imageTel">
-					<div class="tel">
-						<img class="img-responsive" src="{{ asset('bundles/odiseopickmystuff/images/tel_footer.png') }}">
-						<span><a>787.651.6044</a> | <a>787.651.6054</a></span>
-					</div>
-				</div>
-				<div class="col-xs-6 imageEmail">
-					<div class="email">
-						<img class="img-responsive" src="{{ asset('bundles/odiseopickmystuff/images/email_footer.png') }}">
-						<a href="mailto:info@pickmystuff.net">info@pickmystuff.net</a>
-					</div>
-				</div>
-			</div>
+		    <div class="footer">
+		        <div class="container">
+		            <div class="row">
+		                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+		                    <ul class="footer-text">
+		                        <li><p>Fratelli Branca es marca registrada. Todos los derechos reservados </p></li>
+		                        <li><p><a href="{{ path('odiseo_branca_rally_frontend_terms') }}" target="_blank">Bases y Condiciones</a></p></li>
+		                        <li><p><a href="http://www.branca.com.ar" target="_blank">www.branca.com.ar</a></p></li>
+		                    </ul>
+		                </div>
+		                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+		                    <img src="{{ asset('bundles/odiseobrancarally/img/marcas.png') }}" class="img-responsive pull-right" alt=""/>
+		                </div>
+		            </div>
+		        </div>
+		    </div>
 		</footer>
+		
 		<!-- javascript -->
 		{# javascripts... #}
 		{% block javascripts %}
-		<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 		{% javascripts output='js/frontend.min.js'
-           'bundles/odiseopickmystuff/js/vendor/jquery.validate.min.js'
-		   'bundles/odiseopickmystuff/js/vendor/bootstrap-filestyle.min.js'
-		   'bundles/odiseopickmystuff/js/vendor/bootstrap.min.js'
-		   'bundles/odiseopickmystuff/js/main.js'	
+           'bundles/odiseobrancarally/js/vendor/jquery.1.11.2.min.js'
+           'http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js'
+           'bundles/odiseobrancarally/js/vendor/jquery.mousewheel.min.js'
+           'bundles/odiseobrancarally/js/vendor/bowser.js'
+           'bundles/odiseobrancarally/js/vendor/jquery.touchSwipe.min.js'
+           'bundles/odiseobrancarally/js/vendor/audio2_html5.js'
+           'bundles/odiseobrancarally/js/facebookUtil.js'
+		   'bundles/odiseobrancarally/js/main.js'	
 		%}
 		<script type="text/javascript" src="{{ asset_url }}"></script>
 		{% endjavascripts %}
 		{% endblock %}
+
+        <script type="text/javascript" src="{{asset('bundles/odiseobrancarally/js/vendor/modernizr.all.min.js') }}"></script>
+        <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		
+		  ga('create', 'UA-1032323-14', 'auto');
+		  ga('send', 'pageview');
+		</script>
     </body>
 </html>

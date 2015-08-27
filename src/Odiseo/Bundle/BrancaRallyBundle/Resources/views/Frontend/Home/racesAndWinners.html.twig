@@ -1,0 +1,86 @@
+{% extends 'OdiseoBrancaRallyBundle:Frontend:layout.html.twig' %}
+
+{% block content %}
+
+{% set teamWinner = '' %}
+{% if race1 is not null %}
+	{% if  not race1.isEnded %}
+		{% set teamWinner = 'default' %}
+	{% else %}
+		{% if race1.getTeamWinner(race1) == constant('Odiseo\\Bundle\\BrancaRallyBundle\\Game\\Team::TEAM1')%}
+			{% set teamWinner = 'unico' %}
+		{% endif %}
+		{% if race1.getTeamWinner(race1) == constant('Odiseo\\Bundle\\BrancaRallyBundle\\Game\\Team::TEAM2')%}
+			{% set teamWinner = 'branca' %}
+		{% endif %}
+	{% endif %}
+{% endif %}
+<header>
+    <div class="menu-mobile visible-xs visible-sm">
+        <div class="col-xs-8 col-sm-8">
+            <a href="{{ path('odiseo_branca_rally_frontend_home') }}" class="logo-landing-{{ teamWinner }}-rally mobile"  data-winner="{{teamWinner}}"><span class="sr-only">Branca Rally 2015</span></a>
+        </div>
+        <div class="col-xs-4 col-sm-4">
+            <a class="btn-menu-mobile pull-right" id="mobileMenuDrop" href="#"><i class="fa fa-bars"><span class="sr-only">Menu</span></i></a>
+        </div>
+    </div>
+    <ul class="menu-list-mobile visible-xs visible-sm">
+        <li><a class="btn-menu-responsive" href="{{ path('odiseo_branca_rally_frontend_home') }}">Cómo participar</a></li>
+        <li><a class="btn-menu-responsive" href="{{ path('odiseo_branca_rally_frontend_home_races_winners') }}">Carreras y ganadores</a></li>
+        <li><a class="btn-menu-responsive" href="{{ path('odiseo_branca_rally_frontend_terms') }}">Bases y condiciones</a></li>
+    </ul>
+    <div class="bg-ganadores bg-ganadores-top teamwinner" data-winner="{{teamWinner}}">
+        <div class="container">
+            <div class="row menu hidden-sm hidden-xs">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <a class="logo-landing-{{ teamWinner}}-rally teamwinner" data-winner="{{teamWinner}}" href="{{ path('odiseo_branca_rally_frontend_home') }}"><span class="sr-only">Branca Rally 2015</span></a>
+                </div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <nav>
+                        <ul class="menu-list pull-right">
+                            <li><a class="btn-menu" href="{{ path('odiseo_branca_rally_frontend_home') }}">Cómo participar</a></li>
+                            <li><a class="btn-menu" href="{{ path('odiseo_branca_rally_frontend_home_races_winners') }}">Carreras y ganadores</a></li>
+                            <li><a class="btn-menu last" href="{{ path('odiseo_branca_rally_frontend_terms') }}">Bases y condiciones</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            {% if race1 is not null %}
+            {% set race = race1 %}
+            <div class="row">
+				{% if not race.isStarted %}
+				{{ include('OdiseoBrancaRallyBundle:Frontend:Partials/Race/_nextRace.html.twig', { 'race': race } ) }}
+            	{% elseif race.isStarted and not race.isEnded %}
+            	{{ include('OdiseoBrancaRallyBundle:Frontend:Partials/Race/_currentRace.html.twig', { 'race': race }) }}
+            	{% elseif race.isEnded %}
+            	{{ include('OdiseoBrancaRallyBundle:Frontend:Partials/Race/_endedRace.html.twig', { 'race': race, 'raceNumber': 1 }) }}
+            	{% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</header>
+<!-- HEADER -->
+
+<!-- CONTENT-->
+<section>
+    <div class="bg-ganadores-bottom diag offset-top-180 offset-sm-md-top-180 hidden-xs"><span class="sr-only">diagonal fixed</span></div>
+
+    <div class="bg-ganadores bg-ganadores-bottom">
+        <div class="container">
+        	{% if race2 is not null %}
+            {% set race = race2 %}
+            <div class="row">
+            	{% if not race.isStarted %}
+				{{ include('OdiseoBrancaRallyBundle:Frontend:Partials/Race/_nextRace.html.twig', { 'race': race }) }}
+            	{% elseif race.isStarted and not race.isEnded %}
+            	{{ include('OdiseoBrancaRallyBundle:Frontend:Partials/Race/_currentRace.html.twig', { 'race': race }) }}
+            	{% elseif race.isEnded %}
+            	{{ include('OdiseoBrancaRallyBundle:Frontend:Partials/Race/_endedRace.html.twig', { 'race': race, 'raceNumber': 2 }) }}
+            	{% endif %}
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

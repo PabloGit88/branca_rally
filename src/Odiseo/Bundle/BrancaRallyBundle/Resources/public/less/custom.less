@@ -1,0 +1,36 @@
+@import "custom/background.less";
+@import "custom/menu.less";
+@import "custom/header.less";
+@import "custom/font.less";
+@import "custom/tipografia.less";
+@import "custom/buttons.less";
+@import "custom/offsets.less";
+@import "custom/equipos.less";
+@import "custom/sprites.less"; 
+@import "custom/footer.less"; 
+@import "custom/carrera.less";
+@import "custom/ganadores.less";
+@import "custom/reproductor.less";
+.clear-grid{
+	[class*="col-"]:first-child,[class*="col-"]:last-child,{
+		padding-left: 0;
+		padding-right: 0;
+		.container{
+			padding-left: 30px;
+			padding-right: 30px;
+		}	
+	}
+}
+
+a,button{
+	&:active,&:focus{
+		color:inherit;
+	}
+}
+
+.absolute{
+	position: absolute;
+	left: 50%;
+	margin-left: -43.2%;
+	z-index: 1;
+}

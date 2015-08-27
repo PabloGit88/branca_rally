@@ -41,3 +41,4 @@ bin/phpcrodm
 bin/phpcrodm.php
 bin/jackalope
 bin/phpunit
+logs

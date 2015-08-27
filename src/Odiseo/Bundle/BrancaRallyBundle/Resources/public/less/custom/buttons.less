@@ -1,0 +1,100 @@
+.btn{
+	&-menu{
+		&-mobile{
+			color:#fff;
+			&:hover,&:active, &:focus{
+				color: darken(#fff, 10%)
+			}
+			@media @sm-md {
+				padding: 48px 50px;
+				line-height: 32px;
+				font-size: 32px;
+			}
+			font-size: 22px;
+			display: inline-block;
+			padding-top: 15px;
+		}
+	}
+	&-principal{
+		text-align: center;
+
+		padding: 20px 57px;
+		margin-top: 30px;
+		margin-bottom: 25px;
+		display: inline-block;	
+		
+		&.home{
+			display: block;
+			max-width: 350px;
+			min-width: 272px;
+			@media @xs-sm {
+				margin-top: 50px;
+				margin-bottom: 60px;
+			}
+			@media @sm-md {
+				margin-top: 70px;
+				margin-bottom: 211px;
+			}
+		}
+		&.landing-play{
+			display: block;
+			max-width: 340px;
+			position: absolute;
+			left: 50%;
+			margin-left: -170px;
+			@media @xs-sm {
+				max-width: 80%;
+				margin: 88px auto;
+			}
+			
+		}
+
+		&.btn-principal-xs{
+			font-size: 17px;
+			padding: 17px 35px;
+			margin: 0;
+			@media @sm-md {
+				font-size: 14px;
+				padding: 17px 20px;
+			}
+		}
+		&.btn-principal-xxs{
+			font-size: 13px;
+			padding: 10px 19px;
+			margin: 0;
+		}
+		&.light{
+			font-weight: 300;
+		}
+
+
+		border: 1px solid #fff;
+		color: #fff;
+		font-size: 20px;
+		.border-top-radius(2px);
+		.border-bottom-radius(2px);
+		text-transform: uppercase;
+		.transition(all .2s linear);
+		&:hover{
+			color: #fff;
+			background-color: rgba(255, 255, 255, 0.2)
+		} 
+
+		@media @sm-md {
+			max-width: 380px;
+			display: block;		
+			min-width: auto;
+			font-size: 25px;
+			padding: 20px 33px;
+		}
+
+		@media @xs-sm {
+			width: 100%;
+			max-width: auto;		
+			min-width: auto;
+			font-size: 18px;
+			padding: 15px 21px;
+		}
+	}
+}
+

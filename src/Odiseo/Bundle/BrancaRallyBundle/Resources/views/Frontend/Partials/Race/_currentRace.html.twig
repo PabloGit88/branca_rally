@@ -1,0 +1,37 @@
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="equipo-content">
+                        <h1 class="text-center-xs-sm">{{ race.name }}</h1>
+                        <p class="subtitle text-center-xs-sm">!Todavía tenés tiempo para participar!</p>
+                        <p class="text-center-xs-sm">No te quedes afuera de la carrera de Rally más importante de Argentina. Vivilo con Fernet Branca.</p>
+                        <a class="btn-principal hidden-xs" href="{{ path('odiseo_branca_rally_frontend_home') }}">sumate acá <span class="sprites semaforo-verde"><span class="sr-only">on</span></span></a>
+                    </div>
+            	</div>
+            	<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="ganadores-carrera-content">
+                        <div class="ganadores-carrera-show"><span class="sr-only">carrera</span></div>
+                        <div class="equipo-content">
+                        {% set raceDate = race.endDate|date("d/m/y") %}
+                            <div class="row">
+                                <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+                                    <div class="ganadores-timer-content">
+                                        <h2 class="ganadores-timer super-font" id="timerCarreraFecha" data-time="{{ (raceDate)|replace({'/': " "}) }}">00:00:00</h2>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                    <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+                                        <p class="ganadores-timer info-timer text-center">Dias</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+                                        <p class="ganadores-timer info-timer text-center">Horas</p>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
+                                        <p class="ganadores-timer info-timer text-center">Minutos</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            	</div>
+            	<div class="visible-xs col-lg-12">
+                    <a class="btn-principal" href="{{ path('odiseo_branca_rally_frontend_home') }}">sumate acá <span class="sprites semaforo-verde"><span class="sr-only">on</span></span></a>
+            	</div>

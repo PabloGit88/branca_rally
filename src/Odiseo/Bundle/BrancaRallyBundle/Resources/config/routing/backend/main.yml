@@ -1,0 +1,24 @@
+#Odiseo Backend Routes
+odiseo_backend:
+    resource: "@OdiseoBackendBundle/Resources/config/routing/main.yml"
+    prefix:   /
+
+odiseo_branca_rally_backend_dashboard:
+    pattern: /dashboard
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Backend/Main:dashboard" }
+
+odiseo_branca_rally_backend_load_participation:
+    path:     /nueva-participacion
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Backend/Main:loadParticipation" }
+    
+odiseo_branca_rally_backend_participation_search:
+    path:     /participations/search
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Backend/Main:searchParticipations" }
+
+odiseo_branca_rally_frontend_send_email_view:
+    path:     /send-emails/{id}
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Backend/Main:sendEmailView" } 
+    
+odiseo_branca_rally_frontend_send_email_winner:
+    path:     /send-emails-winner/{id}
+    defaults: { _controller: "OdiseoBrancaRallyBundle:Backend/Main:sendEmailWinner" } 

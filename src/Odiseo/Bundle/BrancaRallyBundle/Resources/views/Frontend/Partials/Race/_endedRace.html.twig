@@ -1,0 +1,27 @@
+{% if race.getTeamWinner(race) == constant('Odiseo\\Bundle\\BrancaRallyBundle\\Game\\Team::TEAM1')%}
+	{% set teamWinner = 'unico' %}
+{% else %}
+	{% set teamWinner = 'branca' %}
+{% endif %}
+<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="equipo-content inset-sm-md-botom-90">
+                        <h1 class="text-center-xs-sm">{{ race.name }}</h1>
+                        <p class="subtitle text-center-xs-sm">Esta carrera ya tiene sus ganadores</p>
+                        <a class="btn-principal hidden-xs" href="{{ path('odiseo_branca_rally_frontend_view_race' ,  { 'id': race.id }) }}">revivi la carrera</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <img class="img-responsive pad-top-80" src="{{ asset('bundles/odiseobrancarally/img/'~teamWinner~'/ganador.png') }}" alt="Ganador"/>
+                    </div>
+                    <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
+                        <div class="ganadores inset-top-50">
+                        {% if race.canShowWinners %}
+						{{ include('OdiseoBrancaRallyBundle:Frontend:Partials/Ganadores/_ganadoresCarrera'~raceNumber~'.html.twig') }}
+						{% endif %}
+                        </div>
+                    </div>
+                </div>
+                <div class="visible-xs col-lg-12">
+                    <a class="btn-principal" href="{{ path('odiseo_branca_rally_frontend_view_race' ,  { 'id': race.id }) }}">revivi la carrera</a>
+                </div>   

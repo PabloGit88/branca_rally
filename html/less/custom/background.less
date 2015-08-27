@@ -1,0 +1,226 @@
+.b-full(@url){
+	background-image: url(@url);
+	background-repeat: no-repeat;
+	background-position: center 0px;
+	background-size: cover;
+}
+
+.b-center(@url){
+	background-image: url(@url);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+
+.bg-home{
+	padding: 20px 0px;
+	.b-full("../img/home.jpg");
+	@media @xs-sm {
+		background-image: url('../img/home_mobile.jpg');
+		background-size: 100% auto;
+		background-position: bottom;
+		padding-top:65px;
+	}
+	@media @xs-sm-landscape {
+		background-image: url('../img/home_tablet.jpg');
+		background-position: center;
+	}
+	@media @sm-md {
+		background-image: url('../img/home_tablet.jpg');
+		background-position: top;
+		padding-top:145px;
+	}
+}
+
+.bg-equipos{
+	padding: 60px 0px 20px 0px;
+	.b-full("../img/background-equipos.jpg");
+	@media @sm-md {
+		background-image: url("../img/background-equipos-tablet.jpg");
+	}
+	@media @xs-sm {
+		background-image: url("../img/bg-equipo-branca.svg");
+		background-size: 130%;
+		background-position: center 70%;
+		background-color: #feb058;
+		.bg-unico-mobile{
+			background-image: url("../img/bg-equipo-unico.svg");
+			background-color: #35aea6;
+			background-size:180%;
+			background-position: -30px 10px;
+			background-repeat: no-repeat;
+			margin-top: 60px;
+			padding-bottom: 40px;
+		}
+	}
+
+	&-branca{
+		background-color: #feb058;
+	}
+	&-unico{
+		background-color: #35aea6;
+		.b-full("../img/diag-branca.png");
+		background-position: center top;
+		background-size: 100%;
+		padding-top: 183px;
+		@media @sm-md, @xs-sm {
+			background-image: none;
+			padding-top: 20px;
+			position: relative;
+			z-index: 1;
+			display: inline-block;
+			width: 100%;
+			float: left;
+		}
+	}
+	&-unico,&-branca{
+		@media @xs-sm{
+			padding-top: 0px;
+			//background-image: none;
+		}
+	}
+	&-landing{
+		&-unico-top,&-branca-top{
+			&.landing{
+				@media @sm-md {
+					padding-top: 25px;
+					padding-bottom: 110px;
+					.logo-landing{
+						&-unico-rally,&-branca-rally{
+							margin-top: 40px;
+
+						}
+					}
+				}
+			}
+		}
+		&-unico{
+			&-top{
+				padding: 20px 0px;
+				.b-full("../img/unico/background-top.png");
+				background-position: bottom;
+				padding-bottom: 200px;
+				@media @xs-sm{
+					background-image: url('../img/unico/background-top.jpg');
+					padding-top: 63px;
+					padding-bottom: 20px;
+				}
+				@media @sm-md {
+					padding-top: 145px;
+					padding-bottom: 110px;
+				}
+			}
+			&-bottom{
+				.b-full("../img/unico/background-bottom.jpg");
+				background-size: 100%;
+				background-position: top;
+				background-color: #35aea6;
+				padding: 40px 0px 60px;
+				&.diag{
+					height: 160px;
+					background-color: transparent;
+					.b-full("../img/unico/background-bottom.png");
+					background-size: 100%;
+					background-position: bottom;
+					padding: 0;
+					display: block;
+				}
+				@media @xs-sm{
+					background-image: url('../img/unico/background-bottom-mobile.jpg');
+					padding-top: 23px;
+					padding-bottom: 20px;
+				}
+				@media @sm-md {
+					padding-top: 145px;
+					padding-bottom: 110px;
+				}
+			}
+		}
+		&-branca{
+			&-top{
+				padding: 20px 0px;
+				.b-full("../img/branca/background-top.png");
+				background-position: bottom;
+				padding-bottom: 200px;
+				@media @xs-sm{
+					background-image: url('../img/branca/background-top.jpg');
+					padding-top: 63px;
+					padding-bottom: 20px;
+				}
+				@media @sm-md {
+					padding-top: 145px;
+					padding-bottom: 110px;
+				}
+			}
+			&-bottom{
+				padding: 40px 0px 60px;
+				.b-full("../img/branca/background-bottom.jpg");
+				background-size: 100%;
+				background-position: top;
+				background-color: #feb058;
+				@media @xs-sm{
+					background-image: url('../img/branca/background-bottom-mobile.jpg');
+					padding-top: 63px;
+					padding: 10px 0px 60px;
+					padding-bottom: 20px;
+				}
+				@media @sm-md {
+					padding-top: 145px;
+					padding-bottom: 110px;					
+				}
+				&.diag{
+					height: 160px;
+					background-color: transparent;
+					.b-full("../img/branca/background-bottom.png");
+					background-size: 100%;
+					background-position: bottom;
+					padding: 0;
+					display: block;
+				}
+			}
+		}
+	}
+}
+
+.bg-ganadores{
+	padding: 20px 0px;
+	@media @xs-sm, @sm-md {
+		padding: 0px;
+	}
+	&-top{
+		.b-full('../img/ganadores/background-top.jpg');
+		padding-bottom: 170px;
+		@media @xs-sm{
+			padding-top: 63px;
+			padding-bottom: 20px;
+		}
+		@media @sm-md {
+			padding-top: 145px;
+			padding-bottom: 110px;
+		}
+	}
+	&-bottom{
+		.b-full('../img/ganadores/background-bottom.jpg');
+		background-size: 100%;
+		background-color: #feb058;
+		&.diag{
+			height: 150px;
+			background-color: transparent;
+			.b-full("../img/ganadores/background-bottom.png");
+			background-size: 100%;
+			background-position: bottom;
+			padding: 0;
+			display: block;
+		}
+	}
+}
+
+.svg-diagonal{
+	@media @sm-md {
+		display: inline-block;		
+	}	
+	display: none;
+	width: 100%;
+	position: absolute;
+	z-index: 1;
+}

@@ -1,0 +1,59 @@
+Odiseo\Bundle\BrancaRallyBundle\Entity\UserRaceParticipation:
+    type: entity
+    repositoryClass: Odiseo\Bundle\BrancaRallyBundle\Repository\UserRaceParticipationRepository
+    table: user_race_participation
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        createdAt:
+            column: created_at
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updatedAt:
+            column: updated_at
+            type: datetime
+            nullable: true
+            gedmo:
+              timestampable:
+                on: update  
+        soundFile:
+            column: sound_file
+            type: string
+            length: 255
+        soundDuration:
+            column: sound_duration
+            type: integer
+            nullable: true
+            options:
+                default: 0
+        team:
+            column: team
+            type: string
+            length: 255
+        isFacebookShared:
+            type: boolean
+            column: is_facebook_shared
+            nullable: true
+            options:
+                default: 0         
+    manyToOne:
+        user:
+            targetEntity: Odiseo\Bundle\BrancaRallyBundle\Entity\User
+            inversedBy: participations
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+                onDelete: 'CASCADE'
+        race:
+            targetEntity: Odiseo\Bundle\BrancaRallyBundle\Entity\Race
+            inversedBy: participations
+            joinColumn:
+                name: race_id
+                referencedColumnName: id
+                onDelete: 'CASCADE'

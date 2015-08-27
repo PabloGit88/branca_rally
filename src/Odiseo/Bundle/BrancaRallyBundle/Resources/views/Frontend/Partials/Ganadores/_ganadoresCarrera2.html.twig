@@ -1,0 +1,18 @@
+{% set ganadores =[
+{name:"Rodrigo Malvarez" ,dni: "xx.xxx.999"},
+{name:"Hugo Grangetto" ,dni: "x.xxx.383"},
+{name:"Juan Andino" ,dni: "xx.xxx.300"},
+{name:"Pablo Celis" ,dni: "xx.xxx.901"},
+{name:"Jose Emir Lopez" ,dni: "xx.xxx.451"},
+{name:"Gustavo Gomez" ,dni: "xx.xxx.048"},
+{name:"Luis Gonorowsky" ,dni: "xx.xxx.285"},
+{name:"Pablo Cervilla" ,dni: "xx.xxx.156"},
+{name:"Nicolas Luna" ,dni: "xx.xxx.446"},
+{name:"Matias Gabriel Diaz" ,dni: "xx.xxx.380"}
+]
+%}
+<ol class="lista ">
+    {% for ganador in ganadores %}
+        <li><p>{{ ganador.name }} <span class="pull-right">{{ ganador.dni }}</span></p></li>
+    {% endfor %}
+</ol>
